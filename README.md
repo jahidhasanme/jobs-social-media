@@ -62,10 +62,6 @@ Here’s a breakdown of the technologies used in the platform:
 - 📱 **Flutter** - UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.
 - 🎛️ **GetX** - State management for Flutter, with minimal boilerplate code and high-performance operations.
 
-### Others:
-- 📦 **Yarn** - Fast, reliable, and secure dependency management.
-- ☁️ **Google Cloud** - Cloud services for hosting, data storage, and push notifications.
-- 💳 **Stripe/PayPal** - Payment processing platforms for online transactions.
 
 ## Setup Instructions
 
@@ -82,7 +78,7 @@ Ensure that the following are installed on your system:
 1. Navigate to the `backend` directory: `cd backend`
 2. Install dependencies: `yarn install`
 3. Create a `.env` file based on the `.env.example`: `cp .env.example .env`
-4. Run Prisma migration to set up the database schema: `npx prisma migrate dev`
+4. Run Prisma migration to set up the database schema: `yarn prisma migrate dev`
 5. Run the backend in development mode: `yarn dev`
 
 ### Frontend Setup
@@ -100,4 +96,4 @@ This project is proprietary and is not licensed for public use, modification, or
 
 ---
 
-**Repository Owner:** [Jahid](https://github.com/jahid-git)
+**Repository Owner:** [Jahid Hasan](https://github.com/jahid-git)
