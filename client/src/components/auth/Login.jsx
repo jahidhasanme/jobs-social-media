@@ -1,6 +1,10 @@
 import { useState } from "react";
-import userImg from "../../assets/images/landing-page/userImg.webp";
+import { Link } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
+import { AuthHeader } from "./AuthHeader";
+
+// Images
+import userImg from "../../assets/images/landing-page/userImg.webp";
 
 // Icons from react icons
 import { IoEyeOffSharp } from "react-icons/io5";
@@ -86,25 +90,7 @@ export const Login = () => {
   };
   return (
     <>
-      <header className="bg-white shadow-[0px_2px_10px_0px_rgba(0,0,0,0.25)] header">
-        <div className="flex items-center justify-between px-4 mx-auto xsm:px-10 max-w-screen-2xl py-7 content">
-          <div className="logo">
-            <a href="/">
-              <h1 className="text-2xl font-bold sm:text-4xl">
-                Job<span className="text-[#535353]">Search</span>
-              </h1>
-            </a>
-          </div>
-          <div className="join_button">
-            <a
-              href="#"
-              className="bg-[#1976D2] hover:bg-[#1660A5] ease-linear duration-200 text-white py-3 px-7 rounded"
-            >
-              Join Now
-            </a>
-          </div>
-        </div>
-      </header>
+      <AuthHeader />
       <div className="bg-[#F5F5F5] hero-sec">
         <div className="flex justify-between max-w-screen-xl px-4 mx-auto sm:px-10 max-lg:gap-8 max-md:items-center max-md:flex-col py-28">
           <div className="left-sec">
@@ -191,12 +177,12 @@ export const Login = () => {
                 </p>
               </div>
               <div className="flex items-center justify-end">
-                <a
-                  href="#"
+                <Link
+                  to="/forgot"
                   className="text-sm text-[#00B2FF] font-medium hover:underline"
                 >
                   Forgot password?
-                </a>
+                </Link>
               </div>
               <button
                 type="submit"
