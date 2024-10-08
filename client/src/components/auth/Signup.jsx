@@ -1,20 +1,20 @@
 import { useState } from "react";
+import { AuthHeader } from "./AuthHeader";
 import { Link } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
-import { AuthHeader } from "./AuthHeader";
-
-// Images
-import userImg from "../../assets/images/landing-page/userImg.webp";
 
 // Icons from react icons
 import { IoEyeOffSharp } from "react-icons/io5";
 import { IoEyeSharp } from "react-icons/io5";
 
-export const Login = ({ isJoinOpen, setIsJoinOpen }) => {
+export const Signup = () => {
+  // States
   const [isPasswordShow, setIsPasswordShow] = useState(false);
+  const [isConfirmPasswordShow, setIsConfirmPasswordShow] = useState(false);
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
+    confirmPassword: "",
   });
   const [errors, setErrors] = useState({});
   const [isEmployeeSelect, setIsEmployeeSelect] = useState(false);
@@ -22,15 +22,22 @@ export const Login = ({ isJoinOpen, setIsJoinOpen }) => {
   // Validation Config Obj
   const validationConfig = {
     email: [
-      { required: true, message: "Email is required" },
+      { required: true, message: "Please enter an email" },
       {
         pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-        message: "Enter a valid mail",
+        message: "Please enter a valid email",
       },
     ],
     password: [
       { required: true, message: "Password is required" },
       { minLength: 6, message: "Password must be at least 6 characters" },
+    ],
+    confirmPassword: [
+      { required: true, message: "Please confirm your password" },
+      {
+        match: "password",
+        message: "Passwords do not match!",
+      },
     ],
   };
 
@@ -53,6 +60,11 @@ export const Login = ({ isJoinOpen, setIsJoinOpen }) => {
           errorsData[key] = rule.message;
           return true;
         }
+
+        if (rule.match && value !== formData[rule.match]) {
+          errorsData[key] = rule.message;
+          return true;
+        }
       });
     });
 
@@ -60,7 +72,7 @@ export const Login = ({ isJoinOpen, setIsJoinOpen }) => {
     return errorsData;
   };
 
-  //   Handle Change Eventlistener
+  // Handle Change Eventlistener
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCredentials((prevState) => ({
@@ -75,7 +87,7 @@ export const Login = ({ isJoinOpen, setIsJoinOpen }) => {
     e.preventDefault();
     const errorsData = validate(credentials);
     if (!Object.values(errorsData).length) {
-      toast.success(`Hey ${credentials.email.split("@")[0]}, welcome back.`, {
+      toast.success(`Check your mail for verification.`, {
         position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
@@ -92,24 +104,8 @@ export const Login = ({ isJoinOpen, setIsJoinOpen }) => {
   return (
     <>
       <AuthHeader />
-      <div className="bg-[#F5F5F5] hero-sec">
-        <div className="flex justify-between max-w-screen-xl px-4 mx-auto sm:px-10 max-lg:gap-8 max-md:items-center max-md:flex-col py-28">
-          <div className="left-sec">
-            <div className="texts">
-              <h2 className="mb-6 text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
-                Welcome to <span className="font-bold ">Job</span>
-                <span className="text-[#535353] font-bold">Search</span>!
-              </h2>
-              <p className="max-w-md text-sm md:text-base lg:max-w-xl lg:text-xl xl:text-2xl">
-                Lorem ipsum dolor sit amet consectetur. Nullam ullamcorper
-                pulvinar velit diam ultrices. Pharetra adipiscing consequat ac
-                vulputate euismod.
-              </p>
-            </div>
-            <div className="max-w-xs lg:max-w-sm xl:w-full mt-9">
-              <img src={userImg} alt="" className="w-full" />
-            </div>
-          </div>
+      <section className="h-screen signup bg-[#F5F5F5]">
+        <div className="flex items-center justify-center max-w-screen-xl px-4 mx-auto sm:px-10 max-lg:gap-8 max-md:items-center max-md:flex-col py-28">
           <div className="w-full max-w-lg p-10 bg-white rounded-md md:max-w-sm lg:max-w-md right-sec">
             <div className="flex justify-center gap-16 mb-8">
               <button
@@ -177,21 +173,55 @@ export const Login = ({ isJoinOpen, setIsJoinOpen }) => {
                   {errors.password}
                 </p>
               </div>
-              <div className="flex items-center justify-end">
-                <Link
-                  to="/forgot"
-                  className="text-sm text-[#00B2FF] font-medium hover:underline"
-                >
-                  Forgot password?
-                </Link>
+              <div className="confirm-password-input">
+                <div className="relative">
+                  <input
+                    onChange={handleChange}
+                    value={credentials.confirmPassword}
+                    type={`${isConfirmPasswordShow ? "text" : "password"}`}
+                    name="confirmPassword"
+                    id="confirmPassword"
+                    placeholder="Re-enter Password"
+                    className="rounded outline-none w-full p-3 bg-white shadow-[0px_2px_15px_0px_rgba(0,0,0,0.1)]"
+                  />
+                  <IoEyeOffSharp
+                    onClick={() =>
+                      setIsConfirmPasswordShow(!isConfirmPasswordShow)
+                    }
+                    className={`
+                    ${
+                      isConfirmPasswordShow ? "hidden" : ""
+                    } absolute text-xl -translate-y-1/2 text-[#CDCDCD] cursor-pointer right-6 login-input-eye top-1/2`}
+                  />
+                  <IoEyeSharp
+                    onClick={() =>
+                      setIsConfirmPasswordShow(!isConfirmPasswordShow)
+                    }
+                    className={`${
+                      isConfirmPasswordShow ? "" : "hidden"
+                    } absolute text-xl text-[#CDCDCD] -translate-y-1/2 cursor-pointer right-6 login-input-eye top-1/2`}
+                  />
+                </div>
+                <p className="mt-1 ml-1 text-sm text-red-500 error">
+                  {errors.confirmPassword}
+                </p>
               </div>
               <button
                 type="submit"
                 className="w-full bg-[#1976D2] shadow-[0px_2px_15px_0px_rgba(0,0,0,0.1)] text-white font-medium rounded-md text-sm py-4 hover:bg-[#1660A5] ease-linear duration-200"
               >
-                Login
+                Sign Up
               </button>
             </form>
+            <p className="mt-5 text-sm text-center">
+              By clicking{" "}
+              <span className="text-[#1976D2] font-semibold">Sign up</span> or
+              Continue, you agree to our{" "}
+              <span className="text-[#00B2FF]">User Agreement</span>,&nbsp;
+              <span className="text-[#00B2FF]">Privacy Policy</span>
+              ,&nbsp;and&nbsp;
+              <span className="text-[#00B2FF]">Cookie Policy</span>
+            </p>
             <div className="flex flex-col items-center continue-with-google">
               <p className="text-[#A2A2A2] font-medium text-center my-5 text-sm">
                 Or continue with
@@ -224,71 +254,18 @@ export const Login = ({ isJoinOpen, setIsJoinOpen }) => {
             </div>
             <div className="my-8 font-semibold text-center">
               <p className="text-base sm:text-lg">
-                Not a member?{" "}
+                Already a member?{" "}
                 <Link
-                  to="/signup"
+                  to="/"
                   className="text-[#1976D2] font-bold hover:text-[#1660A5] ease-linear duration-200"
                 >
-                  Sign Up
+                  Log In
                 </Link>
               </p>
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex justify-between max-w-screen-xl px-10 mx-auto max-md:gap-10 max-md:flex-col max-md:items-center suggestion-sec py-28">
-        <div className="left">
-          <div className="max-w-sm space-y-3 md:max-w-xs text-container">
-            <h2 className="text-[#535353] text-3xl lg:text-4xl leading-10 md:leading-[60px] font-bold">
-              Find the right job for you!
-            </h2>
-            <p className="text-[#535353] text-sm lg:text-base">
-              Lorem ipsum dolor sit amet consectetur. Nullam ullamcorper
-              pulvinar velit diam ultrices.{" "}
-            </p>
-          </div>
-        </div>
-        <div className="right">
-          <p className="mb-4 text-xs text-[#535353]">Suggested searches:</p>
-          <div className="max-w-sm lg:max-w-md tags">
-            <ul className="flex flex-wrap gap-3 font-medium text-[#535353]">
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Sales
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Marketing
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Finance
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Engineering
-              </li>
-              <li className=" py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Retail Associate
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Human Resources
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                IT/ICT
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Sales
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Marketing
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Finance
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Engineering
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      </section>
     </>
   );
 };
