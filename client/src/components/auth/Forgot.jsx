@@ -82,14 +82,18 @@ export const Forgot = () => {
   return (
     <>
       <AuthHeader />
-      <section className="flex items-center justify-center h-screen forgot-pass">
+      <section className="flex items-center justify-center h-screen max-sm:mx-5 forgot-pass">
         <form
           onSubmit={handleSubmit}
-          className="shadow-[0_30px_60px_rgba(3,4,28,.1)] p-[50px_85px_55px] space-y-4 bg-white rounded md:space-y-6"
+          className="shadow-[0_30px_60px_rgba(3,4,28,.1)] p-[40px_60px_45px] sm:p-[50px_85px_55px] space-y-4 bg-white rounded md:space-y-6"
         >
           <div className="texts">
-            <h3 className="mb-2 text-4xl text-center">Forgot Password?</h3>
-            <p>Enter your email address to request password reset.</p>
+            <h3 className="mb-2 text-xl font-semibold text-center xsm:text-2xl sm:text-4xl">
+              Forgot Password?
+            </h3>
+            <p className="max-sm:text-xs">
+              Enter your email address to request password reset.
+            </p>
           </div>
           <div className="email-input">
             <input
@@ -107,12 +111,12 @@ export const Forgot = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-[#1976D2] shadow-[0px_2px_15px_0px_rgba(0,0,0,0.1)] text-white font-medium rounded-md text-sm py-4 hover:bg-[#1660A5] ease-linear duration-200"
+            className="w-full bg-[#1976D2] shadow-[0px_2px_15px_0px_rgba(0,0,0,0.1)] text-white font-medium rounded-md text-xs xsm:text-sm py-3 xsm:py-4 hover:bg-[#1660A5] ease-linear duration-200"
           >
             Send Request
           </button>
           <div>
-            <p className="text-sm text-center text-[#A2A2A2]">
+            <p className="text-xs xsm:text-sm text-center text-[#A2A2A2]">
               Remember your password?{" "}
               <Link
                 to="/"
