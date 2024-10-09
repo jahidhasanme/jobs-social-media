@@ -91,19 +91,14 @@ export const Signup = () => {
     e.preventDefault();
     const errorsData = validate(credentials);
     if (!Object.values(errorsData).length) {
-      toast.success(`Check your mail for verification.`, {
+      toast.success(`Check your mail for verification code.`, {
         position: "top-center",
         autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         theme: "light",
         transition: Bounce,
       });
       //Checks if every field is filled if it is then redirect to email verification
-      navigate("/signup/email-verification");
+      navigate("/signup/email-verification", { state: credentials.email });
     }
   };
 
@@ -111,7 +106,7 @@ export const Signup = () => {
     <>
       <AuthHeader />
       {location.pathname === "/signup" && (
-        <section className="h-screen signup bg-[#F5F5F5]">
+        <section className="signup bg-[#F5F5F5]">
           <div className="flex items-center justify-center max-w-screen-xl px-4 mx-auto sm:px-10 max-lg:gap-8 max-md:items-center max-md:flex-col py-28">
             <div className="w-full max-w-lg p-10 bg-white rounded-md md:max-w-sm lg:max-w-md right-sec">
               <div className="flex justify-center gap-16 mb-8">

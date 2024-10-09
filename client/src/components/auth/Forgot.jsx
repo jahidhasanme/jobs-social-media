@@ -82,7 +82,7 @@ export const Forgot = () => {
   return (
     <>
       <AuthHeader />
-      <section className="flex items-center justify-center h-screen max-sm:mx-5 forgot-pass">
+      <section className="flex items-center justify-center min-h-screen my-10 max-sm:mx-5 forgot-pass">
         <form
           onSubmit={handleSubmit}
           className="shadow-[0_30px_60px_rgba(3,4,28,.1)] p-[40px_60px_45px] sm:p-[50px_85px_55px] space-y-4 bg-white rounded md:space-y-6"

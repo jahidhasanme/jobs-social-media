@@ -78,11 +78,6 @@ export const Login = ({ isJoinOpen, setIsJoinOpen }) => {
       toast.success(`Hey ${credentials.email.split("@")[0]}, welcome back.`, {
         position: "top-center",
         autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         theme: "light",
         transition: Bounce,
       });

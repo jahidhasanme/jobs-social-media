@@ -11,6 +11,8 @@ import { Forgot } from "./components/auth/Forgot.jsx";
 // Sign up page components
 import { Signup } from "./components/auth/Signup.jsx";
 import { EmailVerification } from "./components/Form/EmailVerification.jsx";
+import { SetName } from "./components/Form/SetName.jsx";
+import { SetNumber } from "./components/Form/SetNumber.jsx";
 
 import "./index.css";
 
@@ -29,11 +31,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/signup",
-        element: <Signup />, // Parent component that contains the <Outlet />
+        element: <Signup />, // Parent component that contains the <Outlet /> for signup pages
         children: [
           {
             path: "email-verification", // Route for /signup/email-verification
             element: <EmailVerification />,
+          },
+          {
+            path: "set-name", // Route for /signup/set-name
+            element: <SetName />,
+          },
+          {
+            path: "set-number", // Route for /signup/set-number
+            element: <SetNumber />,
           },
         ],
       },

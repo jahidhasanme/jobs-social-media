@@ -1,7 +1,15 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
 
 export const EmailVerification = () => {
+  // Navigation states from router dom
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Getting user email as a state through location
+  const userEmail = location.state;
+
   // Creating dummy form data to map and create otp field
   const [otp, setOtp] = useState(new Array(6).fill(""));
 
@@ -37,32 +45,32 @@ export const EmailVerification = () => {
       toast.error(`maximum length of otp should be 6.`, {
         position: "top-center",
         autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
         transition: Bounce,
       });
     } else {
       setOtp(updatedValue);
+      navigate("/signup/set-name");
+      toast.success(`Your email has been verified.`, {
+        position: "top-center",
+        autoClose: 3000,
+        transition: Bounce,
+      });
     }
   }
 
   return (
-    <section className="flex flex-col items-center justify-center h-screen email-verification">
-      <div className="max-w-2xl text-center texts">
-        <h3 className="text-[#1976D2] mb-8 text-3xl font-semibold">
+    <section className="flex flex-col items-center justify-center min-h-screen my-10 max-sm:mx-2 email-verification">
+      <div className="max-w-sm text-center sm:max-w-2xl texts">
+        <h3 className="text-[#1976D2] mb-8 text-xl sm:text-3xl font-semibold">
           Email Verification
         </h3>
-        <p className="font-medium text-lg text-[#535353] mb-4">
+        <p className="font-medium text-sm sm:text-lg text-[#535353] mb-4">
           Dear User/Employee,
         </p>
-        <p className="text-[#535353] text-lg">
+        <p className="text-[#535353] text-sm sm:text-lg">
           We have sent you a 6-digit OTP at{" "}
-          <span className="email text-[#1976D2]">dfrddcsdc@gmail.com</span> to
-          verify your account. Please enter the OTP below and click{" "}
+          <span className="email text-[#1976D2]">{userEmail}</span> to verify
+          your account. Please enter the OTP below and click{" "}
           <span className="font-semibold">“verify”</span>
         </p>
       </div>
@@ -76,20 +84,26 @@ export const EmailVerification = () => {
               maxLength={1}
               type="text"
               key={i}
-              className="w-12 focus:border-[#1976D2] h-16 rounded p-3 text-center border-[1.5px] border-[#A2A2A2] outline-none"
+              className="w-8 sm:w-12 focus:border-[#1976D2] h-12 sm:h-16 rounded p-3 text-center border-[1.5px] border-[#A2A2A2] outline-none"
             />
           );
         })}
       </div>
-      <button className="verify_button bg-[#1976D2] text-white py-3 hover:bg-[#1660A5] ease-linear duration-200 px-10 rounded">
+      <button
+        onClick={() => {
+          if (otp.every((el) => el)) {
+            toast.success(`Your email has been verified.`, {
+              position: "top-center",
+              autoClose: 3000,
+              transition: Bounce,
+            });
+            navigate("/signup/set-name");
+          }
+        }}
+        className="verify_button max-sm:text-sm bg-[#1976D2] text-white py-2 sm:py-3 hover:bg-[#1660A5] ease-linear duration-200 px-7 sm:px-10 rounded"
+      >
         Verify
       </button>
     </section>
   );
 };
-
-// Todo :
-// 1: show toast on verify button
-// 2: auto redirect to signup name page on otp entering
-// 3: auto redirect to signup name page on clicking on verify also checks if otp is entered
-// 4: show error toast if click submit and otp not full filled

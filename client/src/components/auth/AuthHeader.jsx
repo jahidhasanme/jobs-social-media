@@ -25,7 +25,7 @@ export const AuthHeader = () => {
           <div className="join_button">
             <button
               onClick={() => dispatch(isJoinNowOpen("openJoinNow"))}
-              className="bg-[#1976D2] hover:bg-[#1660A5] ease-linear duration-200 text-white py-3 px-7 rounded"
+              className="bg-[#1976D2] hover:bg-[#1660A5] ease-linear duration-200 text-white py-2 xsm:py-3 px-5 xsm:px-7 rounded"
             >
               Join Now
             </button>
