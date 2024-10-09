@@ -111,7 +111,7 @@ export const Signup = () => {
     <>
       <AuthHeader />
       {location.pathname === "/signup" && (
-        <section className="h-screen signup bg-[#F5F5F5]">
+        <section className="signup bg-[#F5F5F5]">
           <div className="flex items-center justify-center max-w-screen-xl px-4 mx-auto sm:px-10 max-lg:gap-8 max-md:items-center max-md:flex-col py-28">
             <div className="w-full max-w-lg p-10 bg-white rounded-md md:max-w-sm lg:max-w-md right-sec">
               <div className="flex justify-center gap-16 mb-8">
