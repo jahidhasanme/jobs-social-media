@@ -18,6 +18,9 @@ import { SetCategory } from "./components/Form/SetCategory.jsx";
 import { SetSkills } from "./components/Form/SetSkills.jsx";
 import { SetInterestedCountries } from "./components/Form/SetInterestedCountries.jsx";
 
+// Home page routes component
+import Home from "./pages/Home.jsx";
+
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -28,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <LandingPage />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
       },
       {
         path: "/forgot",
