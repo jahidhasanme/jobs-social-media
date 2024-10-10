@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export const SetCategory = () => {
+export const SetSkills = () => {
   // Navigation
   const navigate = useNavigate();
 
@@ -11,7 +11,7 @@ export const SetCategory = () => {
     // if (!Object.values(errorsData).length) {
     //Checks if every field is filled if it is then redirect to number verification page
     // }
-    navigate("/signup/set-skills");
+    navigate("/signup/set-interested-countries");
   };
 
   return (
@@ -21,8 +21,11 @@ export const SetCategory = () => {
       </h3>
       <div className="w-full max-w-md p-8 bg-white rounded-lg">
         <form className="mx-auto" onSubmit={handleSubmit}>
+          <p className="skip max-sm:text-sm underline text-[#535353] mb-4 text-right">
+            Skip
+          </p>
           <h3 className="mb-6 text-sm font-medium sm:text-xl text-[#535353]">
-            Category
+            Skills
           </h3>
           <div className="mb-6">
             <div className="categories">
@@ -57,7 +60,7 @@ export const SetCategory = () => {
           </div>
           <div className="flex justify-end gap-4 controls-button">
             <button
-              onClick={() => navigate("/signup/set-job-description")}
+              onClick={() => navigate("/signup/set-category")}
               className="prev-btn ease-linear duration-200 bg-[#CDCDCD] hover:bg-[#A9A9A9] py-3 sm:py-4 px-4 sm:px-6 rounded"
             >
               <svg
@@ -98,3 +101,4 @@ export const SetCategory = () => {
 // Todos:
 // 1: Add validation
 // 2: Add onclick bg change it like it clicked
+// 3: Make skip button functional

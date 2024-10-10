@@ -8,13 +8,15 @@ import App from "./App.jsx";
 import { LandingPage } from "./pages/LandingPage.jsx";
 import { Forgot } from "./components/auth/Forgot.jsx";
 
-// Sign up page components
+// Sign up page routes component
 import { Signup } from "./components/auth/Signup.jsx";
 import { EmailVerification } from "./components/Form/EmailVerification.jsx";
 import { SetName } from "./components/Form/SetName.jsx";
 import { SetNumber } from "./components/Form/SetNumber.jsx";
 import { SetJobDescription } from "./components/Form/SetJobDescription.jsx";
 import { SetCategory } from "./components/Form/SetCategory.jsx";
+import { SetSkills } from "./components/Form/SetSkills.jsx";
+import { SetInterestedCountries } from "./components/Form/SetInterestedCountries.jsx";
 
 import "./index.css";
 
@@ -54,6 +56,14 @@ const router = createBrowserRouter([
           {
             path: "set-category", // Route for /signup/set-category
             element: <SetCategory />,
+          },
+          {
+            path: "set-skills", // Route for /signup/set-skills
+            element: <SetSkills />,
+          },
+          {
+            path: "set-interested-countries", // Route for /signup/set-interested-countries
+            element: <SetInterestedCountries />,
           },
         ],
       },
