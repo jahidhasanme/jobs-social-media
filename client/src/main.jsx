@@ -13,6 +13,7 @@ import { Signup } from "./components/auth/Signup.jsx";
 import { EmailVerification } from "./components/Form/EmailVerification.jsx";
 import { SetName } from "./components/Form/SetName.jsx";
 import { SetNumber } from "./components/Form/SetNumber.jsx";
+import { SetJobDescription } from "./components/Form/SetJobDescription.jsx";
 
 import "./index.css";
 
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
           {
             path: "set-number", // Route for /signup/set-number
             element: <SetNumber />,
+          },
+          {
+            path: "set-job-description", // Route for /signup/set-job-description
+            element: <SetJobDescription />,
           },
         ],
       },
