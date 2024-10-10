@@ -14,6 +14,7 @@ import { EmailVerification } from "./components/Form/EmailVerification.jsx";
 import { SetName } from "./components/Form/SetName.jsx";
 import { SetNumber } from "./components/Form/SetNumber.jsx";
 import { SetJobDescription } from "./components/Form/SetJobDescription.jsx";
+import { SetCategory } from "./components/Form/SetCategory.jsx";
 
 import "./index.css";
 
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
           {
             path: "set-job-description", // Route for /signup/set-job-description
             element: <SetJobDescription />,
+          },
+          {
+            path: "set-category", // Route for /signup/set-category
+            element: <SetCategory />,
           },
         ],
       },
