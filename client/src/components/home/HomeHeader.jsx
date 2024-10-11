@@ -25,40 +25,40 @@ export const HomeHeader = () => {
               <input
                 type="input"
                 placeholder="Search"
-                className="rounded-md py-2 px-3 font-medium max-w-64 border-[#A2A2A2] border"
+                className="rounded-md py-1 lg:py-2 px-2 lg:px-3 font-medium max-w-56 lg:max-w-64 border-[#A2A2A2] border"
               />
               <IoSearch className="absolute text-xl -translate-y-1/2 text-[#A2A2A2] right-3 top-1/2" />
             </div>
           </div>
-          <div className="flex gap-8 navigation">
+          <div className="flex gap-4 lg:gap-6 navigation">
             <div className="flex flex-col items-center justify-center gap-2 home-icon">
-              <AiOutlineHome className="text-3xl cursor-pointer text-[#1976D2]" />
+              <AiOutlineHome className="text-xl lg:text-2xl cursor-pointer text-[#1976D2]" />
               <span className="text-[#1976D2] text-sm font-semibold">Home</span>
             </div>
             <div className="flex flex-col items-center gap-2 jobs-icon">
-              <MdOutlineWorkOutline className="text-3xl cursor-pointer text-[#535353]" />
+              <MdOutlineWorkOutline className="text-xl lg:text-2xl cursor-pointer text-[#535353]" />
               <span className="text-[#535353] text-sm font-semibold">JOBS</span>
             </div>
             <div className="flex flex-col items-center gap-2 message-icon">
-              <MdOutlineMessage className="text-3xl cursor-pointer text-[#535353]" />
+              <MdOutlineMessage className="text-xl lg:text-2xl cursor-pointer text-[#535353]" />
               <span className="text-[#535353] text-sm font-semibold">
                 MESSAGING
               </span>
             </div>
             <div className="flex flex-col items-center gap-2 notification-icon">
-              <MdOutlineNotificationsActive className="text-3xl cursor-pointer text-[#535353]" />
+              <MdOutlineNotificationsActive className="text-xl lg:text-2xl cursor-pointer text-[#535353]" />
               <span className="text-[#535353] text-sm font-semibold">
                 NOTIFICATIONS
               </span>
             </div>
             <div className="flex flex-col items-center gap-2 profile-icon">
-              <FaRegUserCircle className="text-3xl cursor-pointer text-[#535353]" />
+              <FaRegUserCircle className="text-xl lg:text-2xl cursor-pointer text-[#535353]" />
               <span className="text-[#535353] flex items-center text-sm font-semibold">
                 PROFILE <MdOutlineArrowDropDown />
               </span>
             </div>
-            <div className="mx-6 before:content-[''] before:h-1/2 before:top-1/2 before:-translate-y-1/2 before:w-[1px] before:absolute before:-left-8 relative before:bg-[#535353] flex flex-col items-center gap-2 home-icon">
-              <IoDiamond className="text-3xl cursor-pointer text-[#FFC107]" />
+            <div className="mx-4 before:content-[''] before:h-1/2 before:top-1/2 before:-translate-y-1/2 before:w-[1px] before:absolute before:-left-4 relative before:bg-[#535353] flex flex-col items-center gap-2 home-icon">
+              <IoDiamond className="text-xl lg:text-2xl cursor-pointer text-[#FFC107]" />
               <span className="text-[#FFC107] flex items-center text-sm font-semibold">
                 GET PREMIUM
               </span>
