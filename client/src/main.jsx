@@ -10,13 +10,13 @@ import { Forgot } from "./components/auth/Forgot.jsx";
 
 // Sign up page routes component
 import { Signup } from "./components/auth/Signup.jsx";
-import { EmailVerification } from "./components/Form/EmailVerification.jsx";
-import { SetName } from "./components/Form/SetName.jsx";
-import { SetNumber } from "./components/Form/SetNumber.jsx";
-import { SetJobDescription } from "./components/Form/SetJobDescription.jsx";
-import { SetCategory } from "./components/Form/SetCategory.jsx";
-import { SetSkills } from "./components/Form/SetSkills.jsx";
-import { SetInterestedCountries } from "./components/Form/SetInterestedCountries.jsx";
+import { EmailVerification } from "./components/form/EmailVerification.jsx";
+import { SetName } from "./components/form/SetName.jsx";
+import { SetNumber } from "./components/form/SetNumber.jsx";
+import { SetJobDescription } from "./components/form/SetJobDescription.jsx";
+import { SetCategory } from "./components/form/SetCategory.jsx";
+import { SetSkills } from "./components/form/SetSkills.jsx";
+import { SetInterestedCountries } from "./components/form/SetInterestedCountries.jsx";
 
 // Home page routes component
 import Home from "./pages/Home.jsx";
