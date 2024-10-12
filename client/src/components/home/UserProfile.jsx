@@ -1,11 +1,17 @@
-import React from "react";
+// Icons
+import { IoDiamond } from "react-icons/io5";
+import { MdOutlineEmail } from "react-icons/md";
+import { FiPhoneCall } from "react-icons/fi";
+import { LiaLinkedin } from "react-icons/lia";
+import { LiaFacebookSquare } from "react-icons/lia";
 
 export const UserProfile = () => {
   return (
     <main className="min-h-screen px-4 xsm:px-10 py-7 bg-[#F5F5F5]">
       <div className="flex mx-auto home-page-contents max-w-screen-2xl"></div>
-      <div className="w-full max-w-sm overflow-hidden bg-white rounded-md about-section">
-        <div className="profile">
+      <div className="w-full max-w-sm overflow-hidden rounded-md about-section">
+        {/* Profile */}
+        <div className="bg-white profile">
           {/* Profile img */}
           <div className="h-16 mb-16 banner-logo">
             <img
@@ -27,50 +33,94 @@ export const UserProfile = () => {
             </p>
             <p className="mt-4 text-[#A2A2A2] text-sm">Company Name</p>
           </div>
-        </div>
-        {/* Followers  */}
-        <div className="border-b border-[#F5F5F5] flex px-3 py-5 justify-evenly followers">
-          <div className="text-[#1976D2] text-center text-sm font-semibold followers">
-            <p className="">Followers</p>
-            <p>152</p>
+          {/* Followers  */}
+          <div className="border-b border-[#F5F5F5] flex px-3 py-5 justify-evenly followers">
+            <div className="text-[#1976D2] text-center text-sm font-semibold followers">
+              <p className="">Followers</p>
+              <p>152</p>
+            </div>
+            <div className="text-[#1976D2] text-center text-sm font-semibold following">
+              <p className="">Following</p>
+              <p>152</p>
+            </div>
           </div>
-          <div className="text-[#1976D2] text-center text-sm font-semibold following">
-            <p className="">Following</p>
-            <p>152</p>
-          </div>
-        </div>
-        {/* About me  */}
-        <div className="border-b border-[#F5F5F5] w-full px-3 py-5 about">
-          <p className="text-[#535353] mb-2 font-medium text-sm">About Me</p>
-          <p className="text-sm font-medium text-[#A2A2A2]">
-            Lorem ipsum dolor sit amet consectetur. Volutpat diam egestas felis
-            urna aliquet hendrerit egestas. Pharetra amet non congue natoque in
-            risus sit id. Iaculis est scelerisque bibendum tellus nibh semper.
-            Sit quis risus dolor tortor.
-          </p>
-        </div>
-        {/* Job Title  */}
-        <div className="border-b border-[#F5F5F5] px-3 py-5 job-exp">
-          <div className="mb-4">
-            <p className="text-sm text-[#535353] mb-1 font-medium">
-              Present Job Title
+          {/* About me  */}
+          <div className="border-b border-[#F5F5F5] w-full px-3 py-5 about">
+            <p className="text-[#535353] mb-2 font-medium text-sm">About Me</p>
+            <p className="text-sm font-medium text-[#A2A2A2]">
+              Lorem ipsum dolor sit amet consectetur. Volutpat diam egestas
+              felis urna aliquet hendrerit egestas. Pharetra amet non congue
+              natoque in risus sit id. Iaculis est scelerisque bibendum tellus
+              nibh semper. Sit quis risus dolor tortor.
             </p>
-            <p className="text-[#A2A2A2] font-medium text-sm">Company</p>
           </div>
-          <div className="mb-4">
-            <p className="text-sm text-[#535353] mb-1 font-medium">
-              Former Job Title
-            </p>
-            <p className="text-[#A2A2A2] font-medium text-sm">Company</p>
+          {/* Job Title  */}
+          <div className="border-b border-[#F5F5F5] px-3 py-5 job-exp">
+            <div className="mb-4">
+              <p className="text-sm text-[#535353] mb-1 font-medium">
+                Present Job Title
+              </p>
+              <p className="text-[#A2A2A2] font-medium text-sm">Company</p>
+            </div>
+            <div className="mb-4">
+              <p className="text-sm text-[#535353] mb-1 font-medium">
+                Former Job Title
+              </p>
+              <p className="text-[#A2A2A2] font-medium text-sm">Company</p>
+            </div>
+          </div>
+          {/* Skills  */}
+          <div className="border-b border-[#F5F5F5] px-3 py-5 skills">
+            <p className="text-sm font-medium text-[#535353] mb-1">Skills</p>
+            <ul className="text-[#1976D2] text-sm font-medium">
+              <li>Research & Development</li>
+              <li>Marketing</li>
+            </ul>
           </div>
         </div>
-        {/* Skills  */}
-        <div className="border-b border-[#F5F5F5] px-3 py-5 skills">
-          <p className="text-sm font-medium text-[#535353] mb-1">Skills</p>
-          <ul className="text-[#1976D2] text-sm font-medium">
-            <li>Research & Development</li>
-            <li>Marketing</li>
-          </ul>
+        {/* Subscription */}
+        <div className="text-[#FFC107] font-medium flex items-center gap-2 p-4 my-5 bg-white rounded-md">
+          <IoDiamond className="text-xl" />
+          <span>Get Premium at BDT 90</span>
+        </div>
+        {/* Education & Contact */}
+        <div className="bg-white education-contact">
+          <div className="p-4 education border-b border-[#F5F5F5]">
+            <div className="my-3">
+              <p className="text-sm text-[#535353] font-medium">
+                University Name
+              </p>
+              <p className="text-[#A2A2A2] text-sm">Major</p>
+            </div>
+            <div className="my-3">
+              <p className="text-sm text-[#535353] font-medium">College Name</p>
+              <p className="text-[#A2A2A2] text-sm">Science</p>
+            </div>
+            <div className="my-3">
+              <p className="text-sm text-[#535353] font-medium">School Name</p>
+              <p className="text-[#A2A2A2] text-sm">XYZ</p>
+            </div>
+          </div>
+          <div className="p-4 contact border-b border-[#F5F5F5]">
+            <div className="text-[#535353] flex items-center gap-2 my-3">
+              <MdOutlineEmail className="text-lg" />
+              <span className="text-sm">duishddid@gmail.com</span>
+            </div>
+            <div className="text-[#535353] flex items-center gap-2 my-3">
+              <FiPhoneCall className="text-lg" />
+              <span className="text-sm">+88888888888</span>
+            </div>
+          </div>
+          <div className="p-4 social">
+            <div className="text-[#535353] flex items-center gap-2 my-3">
+              <LiaLinkedin className="text-xl" />
+              <span className="text-sm">your-linkedin.com</span>
+            </div>
+            <div className="text-[#535353] flex items-center gap-2 my-3">
+              <LiaFacebookSquare className="text-xl" />
+              <span className="text-sm">your-facebook.com</span>
+            </div>
+          </div>
         </div>
       </div>
     </main>
