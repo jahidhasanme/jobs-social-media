@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 // Icons
 import { IoSearch } from "react-icons/io5";
@@ -31,26 +31,54 @@ export const HomeHeader = () => {
             </div>
           </div>
           <div className="flex gap-4 lg:gap-6 navigation">
-            <div className="flex flex-col items-center justify-center gap-2 home-icon">
-              <AiOutlineHome className="text-xl lg:text-2xl cursor-pointer text-[#1976D2]" />
-              <span className="text-[#1976D2] text-sm font-semibold">Home</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 jobs-icon">
-              <MdOutlineWorkOutline className="text-xl lg:text-2xl cursor-pointer text-[#535353]" />
-              <span className="text-[#535353] text-sm font-semibold">JOBS</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 message-icon">
-              <MdOutlineMessage className="text-xl lg:text-2xl cursor-pointer text-[#535353]" />
-              <span className="text-[#535353] text-sm font-semibold">
-                MESSAGING
-              </span>
-            </div>
-            <div className="flex flex-col items-center gap-2 notification-icon">
-              <MdOutlineNotificationsActive className="text-xl lg:text-2xl cursor-pointer text-[#535353]" />
-              <span className="text-[#535353] text-sm font-semibold">
-                NOTIFICATIONS
-              </span>
-            </div>
+            <NavLink
+              to="/home"
+              className={({ isActive }) =>
+                `${
+                  isActive ? "text-[#1976D2]" : "text-[#535353]"
+                } flex flex-col items-center justify-center gap-2 home-icon`
+              }
+              end // This ensures that it only matches the exact '/home' route
+            >
+              <AiOutlineHome className="text-xl cursor-pointer lg:text-2xl" />
+              <span className="text-sm font-semibold">Home</span>
+            </NavLink>
+            <NavLink
+              to="/home/jobs"
+              className={({ isActive }) =>
+                `${
+                  isActive ? "text-[#1976D2]" : "text-[#535353]"
+                } flex flex-col items-center gap-2 jobs-icon`
+              }
+              end
+            >
+              <MdOutlineWorkOutline className="text-xl cursor-pointer lg:text-2xl" />
+              <span className="text-sm font-semibold">JOBS</span>
+            </NavLink>
+            <NavLink
+              to="/home/message"
+              className={({ isActive }) =>
+                `${
+                  isActive ? "text-[#1976D2]" : "text-[#535353]"
+                } flex flex-col items-center gap-2 message-icon`
+              }
+              end
+            >
+              <MdOutlineMessage className="text-xl cursor-pointer lg:text-2xl" />
+              <span className="text-sm font-semibold ">MESSAGING</span>
+            </NavLink>
+            <NavLink
+              to="home/notification"
+              className={({ isActive }) =>
+                `${
+                  isActive ? "text-[#1976D2]" : "text-[#535353]"
+                } flex flex-col items-center gap-2 notification-icon`
+              }
+              end
+            >
+              <MdOutlineNotificationsActive className="text-xl cursor-pointer lg:text-2xl" />
+              <span className="text-sm font-semibold ">NOTIFICATIONS</span>
+            </NavLink>
             <div className="flex flex-col items-center gap-2 profile-icon">
               <FaRegUserCircle className="text-xl lg:text-2xl cursor-pointer text-[#535353]" />
               <span className="text-[#535353] flex items-center text-sm font-semibold">
