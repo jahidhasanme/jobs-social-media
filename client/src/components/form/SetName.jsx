@@ -97,6 +97,7 @@ export const SetName = () => {
           </div>
           <div className="flex justify-end gap-4 controls-button">
             <button
+              type="button"
               onClick={() => navigate("/signup")}
               className="prev-btn ease-linear duration-200 bg-[#CDCDCD] hover:bg-[#A9A9A9] py-3 sm:py-4 px-4 sm:px-6 rounded"
             >
