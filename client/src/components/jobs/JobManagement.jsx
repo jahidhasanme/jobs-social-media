@@ -6,7 +6,7 @@ import { MdOutlineArchive } from "react-icons/md";
 
 export const JobManagement = () => {
   return (
-    <div className="w-full max-w-[255px] px-4  bg-white rounded-md job-management">
+    <div className="w-full h-max max-w-[255px] px-4  bg-white rounded-md job-management">
       <div className="option py-3 border-b border-[#f5f5f5] text-[#535353] flex items-center gap-2">
         <MdAddToPhotos className="text-2xl" />
         <p className="text-sm font-semibold">Saved Jobs</p>
