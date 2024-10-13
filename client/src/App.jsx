@@ -5,9 +5,6 @@ import { ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { isJoinNowOpen } from "./store/slices/joinNowSlice";
 
-// Elements imports
-import { Footer } from "./components/common/Footer";
-
 // Css Imports
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,7 +16,6 @@ function App() {
   return (
     <>
       <Outlet />
-      <Footer />
       <ToastContainer className="text-sm" />
       {/* Body Overlay on join now click */}
       <div

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
 import { AuthHeader } from "./AuthHeader";
+import { Footer } from "./Footer";
 
 // Images
 import userImg from "../../assets/images/landing-page/userImg.webp";
@@ -284,6 +285,7 @@ export const Login = ({ isJoinOpen, setIsJoinOpen }) => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

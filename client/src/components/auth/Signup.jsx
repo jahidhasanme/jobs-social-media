@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AuthHeader } from "./AuthHeader";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
+import { Footer } from "./Footer";
 
 // Icons from react icons
 import { IoEyeOffSharp } from "react-icons/io5";
@@ -270,6 +271,7 @@ export const Signup = () => {
         </section>
       )}
       <Outlet />
+      <Footer />
     </>
   );
 };
