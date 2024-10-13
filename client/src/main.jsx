@@ -22,6 +22,7 @@ import { SetInterestedCountries } from "./components/form/SetInterestedCountries
 import Home from "./pages/Home.jsx";
 import { Jobs } from "./pages/Jobs.jsx";
 import { Message } from "./pages/Message.jsx";
+import { Notifications } from "./pages/Notifications.jsx";
 
 import "./index.css";
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
           {
             path: "message",
             element: <Message />,
+          },
+          {
+            path: "notifications",
+            element: <Notifications />,
           },
         ],
       },

@@ -68,7 +68,7 @@ export const HomeHeader = () => {
               <span className="text-sm font-semibold ">MESSAGING</span>
             </NavLink>
             <NavLink
-              to="home/notification"
+              to="/home/notifications"
               className={({ isActive }) =>
                 `${
                   isActive ? "text-[#1976D2]" : "text-[#535353]"
