@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import imageDemo from "../../assets/images/common-images/message-demo.png";
 
 // Icons
@@ -9,8 +10,25 @@ import { FaImage } from "react-icons/fa6";
 import { IoSend } from "react-icons/io5";
 
 export const Conversation = () => {
+  // reference for the message container (div)
+  const messages = useRef();
+
+  // This function scroll the message to bottom
+  const scrollToBottom = () => {
+    if (messages.current) {
+      messages.current.scrollTop = messages.current.scrollHeight;
+    }
+  };
+
+  // This run when page load for the first time
+  useEffect(() => {
+    // scroll the messages when page load
+    scrollToBottom();
+  }, []);
+
   return (
     <div className="w-full max-w-2xl p-4 bg-white rounded-md conversation">
+      {/* user info */}
       <div className="flex items-center justify-between user-info">
         <div className="flex gap-3 user">
           <div className="w-12 h-12">
@@ -34,13 +52,18 @@ export const Conversation = () => {
           </button>
         </div>
       </div>
-      {/* here all the message goes */}
+      {/* messages area */}
       <div className="relative mt-3 messages-area">
+        {/* notification */}
         <p className="p-2 bg-[#00B2FF] text-white w-full text-center text-sm absolute top-0">
           <span className="font-bold">Warning:</span> You are muted by this
           recipient
         </p>
-        <div className="pt-10 message border-b border-[#F5F5F5]">
+        {/* here all the message goes */}
+        <div
+          className="pt-10 messages border-b border-[#F5F5F5] max-h-[1030px] overflow-y-scroll scroll-bar-none"
+          ref={messages}
+        >
           <div className="message-received">
             <div className="flex flex-col justify-start my-4">
               <p className="py-2 px-4 text-[#535353] w-max bg-[#F5F5F5] rounded">
@@ -129,3 +152,8 @@ export const Conversation = () => {
     </div>
   );
 };
+
+// Todos:
+// make responsive
+// make dynamic
+// make functional

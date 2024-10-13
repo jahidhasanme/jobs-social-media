@@ -1,5 +1,6 @@
-import { Conversation } from "../components/message/Conversation";
 import { UserMessages } from "../components/message/UserMessages";
+import { Conversation } from "../components/message/Conversation";
+import { InviteSchedule } from "../components/message/InviteSchedule";
 
 export const Message = () => {
   return (
@@ -7,6 +8,7 @@ export const Message = () => {
       <div className="flex justify-center gap-5 mx-auto job-page-contents max-w-screen-2xl">
         <UserMessages />
         <Conversation />
+        <InviteSchedule />
       </div>
     </main>
   );
