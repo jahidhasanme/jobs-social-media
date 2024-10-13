@@ -21,6 +21,7 @@ import { SetInterestedCountries } from "./components/form/SetInterestedCountries
 // Home page routes component
 import Home from "./pages/Home.jsx";
 import { Jobs } from "./pages/Jobs.jsx";
+import { Message } from "./pages/Message.jsx";
 
 import "./index.css";
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
           {
             path: "jobs",
             element: <Jobs />,
+          },
+          {
+            path: "message",
+            element: <Message />,
           },
         ],
       },

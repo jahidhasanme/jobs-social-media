@@ -25,7 +25,7 @@ export const HomeHeader = () => {
               <input
                 type="input"
                 placeholder="Search"
-                className="rounded-md py-1 lg:py-2 px-2 lg:px-3 font-medium max-w-56 lg:max-w-64 border-[#A2A2A2] border"
+                className="rounded-md outline-none py-1 lg:py-2 px-2 lg:px-3 font-medium max-w-56 lg:max-w-64 border-[#A2A2A2] border"
               />
               <IoSearch className="absolute text-xl -translate-y-1/2 text-[#A2A2A2] right-3 top-1/2" />
             </div>

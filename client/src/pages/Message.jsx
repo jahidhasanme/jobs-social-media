@@ -1,0 +1,13 @@
+import { Conversation } from "../components/message/Conversation";
+import { UserMessages } from "../components/message/UserMessages";
+
+export const Message = () => {
+  return (
+    <main className="min-h-screen px-4 xsm:px-10 py-7 bg-[#F5F5F5]">
+      <div className="flex justify-center gap-5 mx-auto job-page-contents max-w-screen-2xl">
+        <UserMessages />
+        <Conversation />
+      </div>
+    </main>
+  );
+};
