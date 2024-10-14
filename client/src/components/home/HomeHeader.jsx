@@ -85,12 +85,19 @@ export const HomeHeader = () => {
                 PROFILE <MdOutlineArrowDropDown />
               </span>
             </div>
-            <div className="mx-4 before:content-[''] before:h-1/2 before:top-1/2 before:-translate-y-1/2 before:w-[1px] before:absolute before:-left-4 relative before:bg-[#535353] flex flex-col items-center gap-2 home-icon">
-              <IoDiamond className="text-xl lg:text-2xl cursor-pointer text-[#FFC107]" />
-              <span className="text-[#FFC107] flex items-center text-sm font-semibold">
+            <NavLink
+              to="/home/packages"
+              className={({ isActive }) =>
+                `${
+                  isActive ? "text-[#1976D2]" : "text-[#FFC107]"
+                } mx-4 before:content-[''] before:h-1/2 before:top-1/2 before:-translate-y-1/2 before:w-[1px] before:absolute before:-left-4 relative before:bg-[#535353] flex flex-col items-center gap-2 home-icon`
+              }
+            >
+              <IoDiamond className="text-xl cursor-pointer lg:text-2xl" />
+              <span className="flex items-center text-sm font-semibold">
                 GET PREMIUM
               </span>
-            </div>
+            </NavLink>
           </div>
         </div>
       </header>

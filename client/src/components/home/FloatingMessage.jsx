@@ -8,9 +8,11 @@ import { RiSoundModuleFill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 
 export const FloatingMessage = () => {
+  // open & close state of floating message
   const [isFloatingMessageOpen, setIsFloatingMessageOpen] = useState(false);
 
   return (
+    // Floating message container
     <div className="absolute top-0 flex flex-col items-end gap-6 right-6 floating-message">
       <div
         className={`${
@@ -40,6 +42,7 @@ export const FloatingMessage = () => {
           <UserMessage />
         </div>
       </div>
+      {/* message button */}
       <button
         onClick={() => setIsFloatingMessageOpen(!isFloatingMessageOpen)}
         className={`${
@@ -64,3 +67,6 @@ export const FloatingMessage = () => {
     </div>
   );
 };
+
+// Todos:
+// Make the floating message fixed (if asked)

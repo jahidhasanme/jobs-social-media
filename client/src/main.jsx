@@ -23,6 +23,7 @@ import Home from "./pages/Home.jsx";
 import { Jobs } from "./pages/Jobs.jsx";
 import { Message } from "./pages/Message.jsx";
 import { Notifications } from "./pages/Notifications.jsx";
+import { Packages } from "./pages/Packages.jsx";
 
 import "./index.css";
 
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
           {
             path: "notifications",
             element: <Notifications />,
+          },
+          {
+            path: "packages",
+            element: <Packages />,
           },
         ],
       },
