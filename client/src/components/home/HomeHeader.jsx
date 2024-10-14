@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 // Icons
@@ -9,8 +10,14 @@ import { MdOutlineNotificationsActive } from "react-icons/md";
 import { FaRegUserCircle } from "react-icons/fa";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoDiamond } from "react-icons/io5";
+import { ProfileDropDown } from "../profile/ProfileDropDown";
 
 export const HomeHeader = () => {
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  window.addEventListener("click", () => {
+    setIsProfileOpen(false);
+  });
+
   return (
     <>
       <header className="bg-white shadow-[0px_2px_10px_0px_rgba(0,0,0,0.25)] header">
@@ -79,11 +86,20 @@ export const HomeHeader = () => {
               <MdOutlineNotificationsActive className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold ">NOTIFICATIONS</span>
             </NavLink>
-            <div className="flex flex-col items-center gap-2 profile-icon">
-              <FaRegUserCircle className="text-xl lg:text-2xl cursor-pointer text-[#535353]" />
-              <span className="text-[#535353] flex items-center text-sm font-semibold">
+            <div
+              onClick={(e) => {
+                setIsProfileOpen(!isProfileOpen);
+                e.stopPropagation();
+              }}
+              className={`${
+                isProfileOpen ? "text-[#1976D2]" : "text-[#535353]"
+              } relative flex flex-col items-center gap-2 outline-none cursor-pointer profile-icon`}
+            >
+              <FaRegUserCircle className="text-xl cursor-pointer lg:text-2xl" />
+              <span className="flex items-center text-sm font-semibold">
                 PROFILE <MdOutlineArrowDropDown />
               </span>
+              <ProfileDropDown isProfileOpen={isProfileOpen} />
             </div>
             <NavLink
               to="/home/packages"
