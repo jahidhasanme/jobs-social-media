@@ -8,7 +8,7 @@ import { LiaFacebookSquare } from "react-icons/lia";
 export const UserProfile = () => {
   return (
     // home page user details left-sec
-    <div className="w-full max-w-sm overflow-hidden rounded-md about-section">
+    <div className="w-full h-full max-w-sm overflow-x-hidden overflow-y-scroll rounded-md scroll-bar-none about-section">
       {/* Profile */}
       <div className="bg-white profile">
         {/* Profile img */}

@@ -35,7 +35,7 @@ export const UsersPostContainer = () => {
   ];
 
   return (
-    <div className="w-full max-w-2xl users-post">
+    <div className="w-full max-w-2xl overflow-y-scroll scroll-bar-none users-post">
       {userPostsData.map(
         ({
           id,

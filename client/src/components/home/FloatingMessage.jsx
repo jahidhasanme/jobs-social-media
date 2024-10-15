@@ -13,13 +13,13 @@ export const FloatingMessage = () => {
 
   return (
     // Floating message container
-    <div className="fixed flex flex-col items-end gap-6 bottom-6 right-6 floating-message">
+    <div className="h-[90vh] fixed flex flex-col items-end gap-6 bottom-6 right-6 floating-message">
       <div
         className={`${
           isFloatingMessageOpen
             ? "top-0 opacity-100 visible"
             : "invisible opacity-0 top-5"
-        } relative ease-linear duration-200 w-full max-w-sm messages bg-[#F5F5F5] rounded shadow-[5px_10px_21px_0px_rgba(0,0,0,0.25)] min-h-[662px] max-h-[662px] scroll-bar-none overflow-y-scroll`}
+        } relative ease-linear duration-200 w-full max-w-sm messages bg-[#F5F5F5] rounded shadow-[5px_10px_21px_0px_rgba(0,0,0,0.25)] h-full scroll-bar-none overflow-y-scroll`}
       >
         {/* Top Area */}
         <div className="flex justify-between items-center top-search bg-[#00B2FF] p-4 rounded-t-md rounded-tl-md">
@@ -49,7 +49,7 @@ export const FloatingMessage = () => {
           isFloatingMessageOpen
             ? "!bg-[#F5F5F5] text-[#535353]"
             : "text-white bg-[#1976D2]"
-        } relative outline-none message-btn shadow-[5px_10px_21px_0px_rgba(0,0,0,0.25)] flex justify-center items-center w-14 h-14 rounded-full`}
+        } relative shrink-0 outline-none message-btn shadow-[5px_10px_21px_0px_rgba(0,0,0,0.25)] flex justify-center items-center w-14 h-14 rounded-full`}
       >
         {isFloatingMessageOpen ? (
           <IoMdClose className="text-3xl" />

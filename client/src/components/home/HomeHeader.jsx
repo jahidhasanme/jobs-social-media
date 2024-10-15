@@ -21,7 +21,7 @@ export const HomeHeader = () => {
   return (
     <>
       <header className="bg-white shadow-[0px_2px_10px_0px_rgba(0,0,0,0.25)] header">
-        <div className="flex items-center justify-between px-4 mx-auto xsm:px-10 max-w-screen-2xl py-7 content">
+        <div className="flex items-center justify-between px-4 py-5 mx-auto xsm:px-10 max-w-screen-2xl content">
           <div className="flex gap-4 logo-search-input">
             <Link to="/home">
               <h1 className="text-2xl font-bold cursor-pointer sm:text-3xl">

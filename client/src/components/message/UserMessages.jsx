@@ -5,7 +5,7 @@ import { UserMessage } from "./UserMessage";
 
 export const UserMessages = () => {
   return (
-    <div className="w-full max-w-sm userMessages">
+    <div className="w-full max-w-sm overflow-y-scroll userMessages">
       {/* search container */}
       <div className="flex justify-between w-full gap-2 search-container">
         <div className="relative w-full search-message">

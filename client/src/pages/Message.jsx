@@ -1,23 +1,11 @@
 import { UserMessages } from "../components/message/UserMessages";
 import { Conversation } from "../components/message/Conversation";
 import { InviteSchedule } from "../components/message/InviteSchedule";
-import { useEffect, useRef } from "react";
+import { useAdjustHeight } from "../hooks/useAdjustHeight";
 
 export const Message = () => {
-  // messageContainer ref
-  const messageContainer = useRef();
-  // Resize function
-  function adjustHeight() {
-    const wrapper = messageContainer.current;
-    const newHeight = window.innerHeight - 90;
-    wrapper.style.height = `${newHeight}px`;
-  }
-
-  useEffect(() => {
-    // resize the message container based on screen-size
-    adjustHeight();
-    window.addEventListener("resize", adjustHeight);
-  }, []);
+  // Adjust container based on screen view-height
+  const messageContainer = useAdjustHeight(92);
 
   return (
     <main
