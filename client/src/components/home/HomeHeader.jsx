@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 // Icons
@@ -14,9 +14,17 @@ import { ProfileDropDown } from "../profile/ProfileDropDown";
 
 export const HomeHeader = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  window.addEventListener("click", () => {
-    setIsProfileOpen(false);
-  });
+  useEffect(() => {
+    window.addEventListener("click", () => {
+      setIsProfileOpen(false);
+    });
+
+    return () => {
+      window.removeEventListener("click", () => {
+        setIsProfileOpen(false);
+      });
+    };
+  }, []);
 
   return (
     <>
@@ -99,7 +107,10 @@ export const HomeHeader = () => {
               <span className="flex items-center text-sm font-semibold">
                 PROFILE <MdOutlineArrowDropDown />
               </span>
-              <ProfileDropDown isProfileOpen={isProfileOpen} />
+              <ProfileDropDown
+                buttonName={"Employer"}
+                isProfileOpen={isProfileOpen}
+              />
             </div>
             <NavLink
               to="/home/packages"

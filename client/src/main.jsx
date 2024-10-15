@@ -26,6 +26,7 @@ import { Notifications } from "./pages/Notifications.jsx";
 import { Packages } from "./pages/Packages.jsx";
 
 import "./index.css";
+import { Admin } from "./pages/admin/Admin.jsx";
 
 const router = createBrowserRouter([
   {
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
             element: <SetInterestedCountries />,
           },
         ],
+      },
+      {
+        path: "/admin",
+        element: <Admin />,
       },
     ],
   },

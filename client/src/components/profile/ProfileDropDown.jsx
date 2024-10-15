@@ -1,7 +1,11 @@
 // Icons
 import { BsJournalBookmark } from "react-icons/bs";
 
-export const ProfileDropDown = ({ isProfileOpen }) => {
+export const ProfileDropDown = ({
+  isProfileOpen,
+  additionalClass,
+  buttonName,
+}) => {
   return (
     <div
       onClick={(e) => e.stopPropagation()}
@@ -9,7 +13,7 @@ export const ProfileDropDown = ({ isProfileOpen }) => {
         isProfileOpen
           ? "top-[86px] visible opacity-100"
           : "top-20 invisible opacity-0"
-      } ease-linear duration-200 fixed z-50 w-full max-w-sm rounded-md profile-drop p-4 bg-white shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)]`}
+      } ease-linear ${additionalClass} duration-200 fixed z-50 w-full max-w-sm rounded-md profile-drop p-4 bg-white shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)]`}
     >
       <div className="flex items-center gap-3 pb-3 profile-info">
         <div className="flex-shrink-0 w-12 h-12 profile-img">
@@ -39,7 +43,7 @@ export const ProfileDropDown = ({ isProfileOpen }) => {
       </div>
       <div className="pt-4 text-center">
         <button className="bg-[#1976D2] rounded py-3 px-6 text-white mx-auto font-semibold switch-btn">
-          Switch to Employer
+          Switch to {buttonName}
         </button>
       </div>
     </div>
