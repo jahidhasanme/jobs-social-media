@@ -13,7 +13,7 @@ export const FloatingMessage = () => {
 
   return (
     // Floating message container
-    <div className="absolute top-0 flex flex-col items-end gap-6 right-6 floating-message">
+    <div className="fixed flex flex-col items-end gap-6 bottom-6 right-6 floating-message">
       <div
         className={`${
           isFloatingMessageOpen
