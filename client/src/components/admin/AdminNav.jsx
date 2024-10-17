@@ -14,6 +14,7 @@ export const AdminNav = () => {
               isActive ? "bg-[rgba(255,255,255,0.4)]" : ""
             } w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer`
           }
+          end
         >
           Dashboard
         </NavLink>
@@ -24,6 +25,7 @@ export const AdminNav = () => {
               isActive ? "bg-[rgba(255,255,255,0.4)]" : ""
             } w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer`
           }
+          end
         >
           Employers
         </NavLink>
@@ -34,6 +36,7 @@ export const AdminNav = () => {
               isActive ? "bg-[rgba(255,255,255,0.4)]" : ""
             } w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer`
           }
+          end
         >
           Users/Employees
         </NavLink>
@@ -54,6 +57,7 @@ export const AdminNav = () => {
               isActive ? "bg-[rgba(255,255,255,0.4)]" : ""
             } w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer`
           }
+          end
         >
           Email
         </NavLink>

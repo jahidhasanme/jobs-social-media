@@ -27,6 +27,7 @@ import { Packages } from "./pages/Packages.jsx";
 
 import "./index.css";
 import { Admin } from "./pages/admin/Admin.jsx";
+import { AdminEmployers } from "./pages/admin/AdminEmployers.jsx";
 
 const router = createBrowserRouter([
   {
@@ -100,6 +101,12 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <Admin />,
+        children: [
+          {
+            path: "employers",
+            element: <AdminEmployers />,
+          },
+        ],
       },
     ],
   },
