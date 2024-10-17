@@ -5,3 +5,7 @@
 .scroll-bar-none{
     scrollbar-width: none;
 }
+
+.pointer-events-all{
+    pointer-events: all;
+}
