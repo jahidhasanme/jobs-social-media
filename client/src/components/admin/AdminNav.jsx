@@ -30,7 +30,7 @@ export const AdminNav = () => {
           Employers
         </NavLink>
         <NavLink
-          to="/admin/employee"
+          to="/admin/employees"
           className={({ isActive }) =>
             `${
               isActive ? "bg-[rgba(255,255,255,0.4)]" : ""

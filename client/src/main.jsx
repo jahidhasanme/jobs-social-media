@@ -25,9 +25,12 @@ import { Message } from "./pages/Message.jsx";
 import { Notifications } from "./pages/Notifications.jsx";
 import { Packages } from "./pages/Packages.jsx";
 
-import "./index.css";
+// Admin page routes components
 import { Admin } from "./pages/admin/Admin.jsx";
 import { AdminEmployers } from "./pages/admin/AdminEmployers.jsx";
+import { AdminEmployees } from "./pages/admin/AdminEmployees.jsx";
+
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -105,6 +108,10 @@ const router = createBrowserRouter([
           {
             path: "employers",
             element: <AdminEmployers />,
+          },
+          {
+            path: "employees",
+            element: <AdminEmployees />,
           },
         ],
       },
