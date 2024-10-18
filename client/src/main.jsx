@@ -29,6 +29,7 @@ import { Packages } from "./pages/Packages.jsx";
 import { Admin } from "./pages/admin/Admin.jsx";
 import { AdminEmployers } from "./pages/admin/AdminEmployers.jsx";
 import { AdminEmployees } from "./pages/admin/AdminEmployees.jsx";
+import { AdminPackagesPage } from "./pages/admin/AdminPackagesPage.jsx";
 
 import "./index.css";
 
@@ -112,6 +113,10 @@ const router = createBrowserRouter([
           {
             path: "employees",
             element: <AdminEmployees />,
+          },
+          {
+            path: "packages",
+            element: <AdminPackagesPage />,
           },
         ],
       },
