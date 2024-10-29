@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 // Icons
 import { MdArrowDropDown } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
@@ -39,10 +41,12 @@ export const JobsForYou = () => {
         {/* Job post make a loop based on backend response and add only one of these div */}
         <div className="relative flex gap-3 pb-4 border-b border-[#f5f5f5] mt-4 job">
           <div className="job-logo w-14 h-14">
-            <img
-              className="object-cover w-full h-full rounded-md"
+            <Image
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/2048px-LEGO_logo.svg.png"
-              alt=""
+              className="object-cover w-full h-full rounded-md"
+              width={390}
+              height={390}
+              alt="lego-logo"
             />
           </div>
           <div className="job-info text-[#535353]">
@@ -60,10 +64,12 @@ export const JobsForYou = () => {
         </div>
         <div className="relative flex gap-3 pb-4 border-b border-[#f5f5f5] mt-4 job">
           <div className="job-logo w-14 h-14">
-            <img
-              className="object-cover w-full h-full rounded-md"
+            <Image
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/2048px-LEGO_logo.svg.png"
-              alt=""
+              className="object-cover w-full h-full rounded-md"
+              width={390}
+              height={390}
+              alt="lego-logo"
             />
           </div>
           <div className="job-info text-[#535353]">
@@ -81,10 +87,12 @@ export const JobsForYou = () => {
         </div>
         <div className="relative flex gap-3 pb-4 mt-4 job">
           <div className="job-logo w-14 h-14">
-            <img
-              className="object-cover w-full h-full rounded-md"
+            <Image
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/2048px-LEGO_logo.svg.png"
-              alt=""
+              className="object-cover w-full h-full rounded-md"
+              width={390}
+              height={390}
+              alt="lego-logo"
             />
           </div>
           <div className="job-info text-[#535353]">

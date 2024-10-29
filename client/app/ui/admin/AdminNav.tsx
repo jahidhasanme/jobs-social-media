@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import ActiveLink from "@/app/ui/common/ActiveLink";
 
 export const AdminNav = () => {
   return (
@@ -7,60 +7,41 @@ export const AdminNav = () => {
         JobSearch
       </h2>
       <ul className="flex flex-col items-center justify-center text-center lg:text-lg lg:pl-3">
-        <NavLink
-          to="/admin"
-          className={({ isActive }) =>
-            `${
-              isActive ? "bg-[rgba(255,255,255,0.4)]" : ""
-            } w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer`
-          }
-          end
+        <ActiveLink
+          href="/admin"
+          className="w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer"
+          activeClassName="bg-[rgba(255,255,255,0.4)]"
         >
           Dashboard
-        </NavLink>
-        <NavLink
-          to="/admin/employers"
-          className={({ isActive }) =>
-            `${
-              isActive ? "bg-[rgba(255,255,255,0.4)]" : ""
-            } w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer`
-          }
-          end
+        </ActiveLink>
+        <ActiveLink
+          href="/admin/employers"
+          className="w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer"
+          activeClassName="bg-[rgba(255,255,255,0.4)]"
         >
           Employers
-        </NavLink>
-        <NavLink
-          to="/admin/employees"
-          className={({ isActive }) =>
-            `${
-              isActive ? "bg-[rgba(255,255,255,0.4)]" : ""
-            } w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer`
-          }
-          end
+        </ActiveLink>
+        <ActiveLink
+          href="/admin/employees"
+          className="w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer"
+          activeClassName="bg-[rgba(255,255,255,0.4)]"
         >
           Users/Employees
-        </NavLink>
-        <NavLink
-          to="/admin/packages"
-          className={({ isActive }) =>
-            `${
-              isActive ? "bg-[rgba(255,255,255,0.4)]" : ""
-            } w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer`
-          }
+        </ActiveLink>
+        <ActiveLink
+          href="/admin/packages"
+          className="w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer"
+          activeClassName="bg-[rgba(255,255,255,0.4)]"
         >
           Packages
-        </NavLink>
-        <NavLink
-          to="/admin/email"
-          className={({ isActive }) =>
-            `${
-              isActive ? "bg-[rgba(255,255,255,0.4)]" : ""
-            } w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer`
-          }
-          end
+        </ActiveLink>
+        <ActiveLink
+          href="/admin/email"
+          className="w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer"
+          activeClassName="bg-[rgba(255,255,255,0.4)]"
         >
           Email
-        </NavLink>
+        </ActiveLink>
       </ul>
     </nav>
   );

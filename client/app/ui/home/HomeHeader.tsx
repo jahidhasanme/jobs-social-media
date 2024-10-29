@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import ActiveLink from "../common/ActiveLink";
 
 // Icons
 import { IoSearch } from "react-icons/io5";
@@ -10,7 +11,7 @@ import { MdOutlineNotificationsActive } from "react-icons/md";
 import { FaRegUserCircle } from "react-icons/fa";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoDiamond } from "react-icons/io5";
-import { ProfileDropDown } from "../profile/ProfileDropDown";
+import { ProfileDropDown } from "@/app/ui/profile/ProfileDropDown";
 
 export const HomeHeader = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -31,7 +32,7 @@ export const HomeHeader = () => {
       <header className="bg-white shadow-[0px_2px_10px_0px_rgba(0,0,0,0.25)] header">
         <div className="flex items-center justify-between px-4 py-5 mx-auto xsm:px-10 max-w-screen-2xl content">
           <div className="flex gap-4 logo-search-input">
-            <Link to="/home">
+            <Link href="/home">
               <h1 className="text-2xl font-bold cursor-pointer sm:text-3xl">
                 J<span className="text-[#535353]">S</span>
               </h1>
@@ -46,54 +47,38 @@ export const HomeHeader = () => {
             </div>
           </div>
           <div className="flex gap-4 lg:gap-6 navigation">
-            <NavLink
-              to="/home"
-              className={({ isActive }) =>
-                `${
-                  isActive ? "text-[#1976D2]" : "text-[#535353]"
-                } flex flex-col items-center justify-center gap-2 home-icon`
-              }
-              end // This ensures that it only matches the exact '/home' route
+            <ActiveLink
+              href="/home"
+              className="text-[#535353] flex flex-col items-center justify-center gap-2 home-icon"
+              activeClassName="text-[#1976D2]"
             >
               <AiOutlineHome className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold">Home</span>
-            </NavLink>
-            <NavLink
-              to="/home/jobs"
-              className={({ isActive }) =>
-                `${
-                  isActive ? "text-[#1976D2]" : "text-[#535353]"
-                } flex flex-col items-center gap-2 jobs-icon`
-              }
-              end
+            </ActiveLink>
+            <ActiveLink
+              href="/home/jobs"
+              className="text-[#535353] flex flex-col items-center gap-2 jobs-icon"
+              activeClassName="text-[#1976D2]"
             >
               <MdOutlineWorkOutline className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold">JOBS</span>
-            </NavLink>
-            <NavLink
-              to="/home/message"
-              className={({ isActive }) =>
-                `${
-                  isActive ? "text-[#1976D2]" : "text-[#535353]"
-                } flex flex-col items-center gap-2 message-icon`
-              }
-              end
+            </ActiveLink>
+            <ActiveLink
+              href="/home/message"
+              className="text-[#535353] flex flex-col items-center gap-2 message-icon"
+              activeClassName="text-[#1976D2]"
             >
               <MdOutlineMessage className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold ">MESSAGING</span>
-            </NavLink>
-            <NavLink
-              to="/home/notifications"
-              className={({ isActive }) =>
-                `${
-                  isActive ? "text-[#1976D2]" : "text-[#535353]"
-                } flex flex-col items-center gap-2 notification-icon`
-              }
-              end
+            </ActiveLink>
+            <ActiveLink
+              href="/home/notifications"
+              className="text-[#535353] flex flex-col items-center gap-2 notification-icon"
+              activeClassName="text-[#1976D2]"
             >
               <MdOutlineNotificationsActive className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold ">NOTIFICATIONS</span>
-            </NavLink>
+            </ActiveLink>
             <div
               onClick={(e) => {
                 setIsProfileOpen(!isProfileOpen);
@@ -112,19 +97,16 @@ export const HomeHeader = () => {
                 isProfileOpen={isProfileOpen}
               />
             </div>
-            <NavLink
-              to="/home/packages"
-              className={({ isActive }) =>
-                `${
-                  isActive ? "text-[#1976D2]" : "text-[#FFC107]"
-                } mx-4 before:content-[''] before:h-1/2 before:top-1/2 before:-translate-y-1/2 before:w-[1px] before:absolute before:-left-4 relative before:bg-[#535353] flex flex-col items-center gap-2 home-icon`
-              }
+            <ActiveLink
+              href="/home/packages"
+              className="text-[#FFC107] mx-4 before:content-[''] before:h-1/2 before:top-1/2 before:-translate-y-1/2 before:w-[1px] before:absolute before:-left-4 relative before:bg-[#535353] flex flex-col items-center gap-2 home-icon"
+              activeClassName="text-[#1976D2]"
             >
               <IoDiamond className="text-xl cursor-pointer lg:text-2xl" />
               <span className="flex items-center text-sm font-semibold">
                 GET PREMIUM
               </span>
-            </NavLink>
+            </ActiveLink>
           </div>
         </div>
       </header>

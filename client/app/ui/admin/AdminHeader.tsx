@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import ActiveLink from "@/app/ui/common/ActiveLink";
 
 // Icons
 import { IoSearch } from "react-icons/io5";
@@ -7,7 +9,7 @@ import { MdOutlineMessage } from "react-icons/md";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import { FaRegUserCircle } from "react-icons/fa";
 import { MdOutlineArrowDropDown } from "react-icons/md";
-import { ProfileDropDown } from "../profile/ProfileDropDown";
+import { ProfileDropDown } from "@/app/ui/profile/ProfileDropDown";
 
 export const AdminHeader = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -36,30 +38,22 @@ export const AdminHeader = () => {
         </div>
 
         <div className="flex gap-4 lg:gap-6 navigation">
-          <NavLink
-            to="/admin/message"
-            className={({ isActive }) =>
-              `${
-                isActive ? "text-[#1976D2]" : "text-[#535353]"
-              } flex flex-col items-center gap-2 message-icon`
-            }
-            end
+          <ActiveLink
+            href="/admin/message"
+            className={`text-[#535353] flex flex-col items-center gap-2 message-icon`}
+            activeClassName="text-[#1976D2]"
           >
             <MdOutlineMessage className="text-xl cursor-pointer lg:text-2xl" />
             <span className="text-sm font-semibold ">MESSAGING</span>
-          </NavLink>
-          <NavLink
-            to="/admin/notifications"
-            className={({ isActive }) =>
-              `${
-                isActive ? "text-[#1976D2]" : "text-[#535353]"
-              } flex flex-col items-center gap-2 notification-icon`
-            }
-            end
+          </ActiveLink>
+          <ActiveLink
+            href="/admin/notifications"
+            className={`text-[#535353] flex flex-col items-center gap-2 notification-icon`}
+            activeClassName="text-[#1976D2]"
           >
             <MdOutlineNotificationsActive className="text-xl cursor-pointer lg:text-2xl" />
             <span className="text-sm font-semibold ">NOTIFICATIONS</span>
-          </NavLink>
+          </ActiveLink>
           <div
             onClick={(e) => {
               setIsProfileOpen(!isProfileOpen);

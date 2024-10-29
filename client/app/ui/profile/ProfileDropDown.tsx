@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 // Icons
 import { BsJournalBookmark } from "react-icons/bs";
 
@@ -5,6 +7,10 @@ export const ProfileDropDown = ({
   isProfileOpen,
   additionalClass,
   buttonName,
+}: {
+  isProfileOpen: boolean;
+  additionalClass?: string;
+  buttonName: string;
 }) => {
   return (
     <div
@@ -17,10 +23,12 @@ export const ProfileDropDown = ({
     >
       <div className="flex items-center gap-3 pb-3 profile-info">
         <div className="flex-shrink-0 w-12 h-12 profile-img">
-          <img
+          <Image
             className="object-cover w-full h-full rounded-full"
             src="https://mrwallpaper.com/images/hd/anime-naruto-holding-ninja-knife-dv3cqw2dgcbwupwx.jpg"
-            alt=""
+            alt="profile-pic"
+            width={390}
+            height={219}
           />
         </div>
         <div className="flex flex-col items-start texts">

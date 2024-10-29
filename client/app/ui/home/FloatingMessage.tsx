@@ -2,7 +2,7 @@ import { useState } from "react";
 
 // Icons
 import { TbMessage2 } from "react-icons/tb";
-import { UserMessage } from "../message/UserMessage";
+import { UserMessage } from "@/app/ui/message/UserMessage";
 import { IoSearch } from "react-icons/io5";
 import { RiSoundModuleFill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";

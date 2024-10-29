@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { createPortal } from "react-dom";
+import Link from "next/link";
+import { RootState } from "@/app/store";
 
 // Icons
 import { RxCrossCircled } from "react-icons/rx";
@@ -8,7 +9,7 @@ import { isJoinNowOpen } from "../../store/slices/joinNowSlice";
 
 export const AuthHeader = () => {
   // Redux States
-  const isJoinOpen = useSelector((state) => state.joinNow);
+  const isJoinOpen = useSelector((state: RootState) => state.joinNow);
   const dispatch = useDispatch();
 
   return (
@@ -16,7 +17,7 @@ export const AuthHeader = () => {
       <header className="bg-white shadow-[0px_2px_10px_0px_rgba(0,0,0,0.25)] header">
         <div className="flex items-center justify-between px-4 mx-auto xsm:px-10 max-w-screen-2xl py-7 content">
           <div className="logo">
-            <Link to="/">
+            <Link href="/">
               <h1 className="text-2xl font-bold sm:text-4xl">
                 Job<span className="text-[#535353]">Search</span>
               </h1>
@@ -62,7 +63,7 @@ export const AuthHeader = () => {
             <RxCrossCircled className="absolute text-3xl text-[#535353] cursor-pointer top-5 right-5" />
           </button>
         </section>,
-        document.getElementById("modal")
+        document.getElementById("modal") as HTMLElement
       )}
     </>
   );
