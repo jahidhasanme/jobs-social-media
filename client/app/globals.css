@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom css */
+
+/* Scrollbar css */
+.scroll-bar-none{
+    scrollbar-width: none;
+}
+
+.pointer-events-all{
+    pointer-events: all;
+}
