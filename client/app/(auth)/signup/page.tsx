@@ -1,28 +1,27 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 import { toast } from "react-toastify";
-import { AuthHeader } from "./AuthHeader";
-import { Footer } from "./Footer";
-import { FieldValues, useForm } from "react-hook-form";
-import StoreProvider from "@/app/store/slices/StoreProvider";
+import { Footer } from "@/app/ui/auth/Footer";
 
 // Icons from react icons
 import { IoEyeOffSharp } from "react-icons/io5";
 import { IoEyeSharp } from "react-icons/io5";
+import { FieldValues, useForm } from "react-hook-form";
 
-export const Login = () => {
+const Signup = () => {
+  // States
   const [isPasswordShow, setIsPasswordShow] = useState(false);
+  const [isConfirmPasswordShow, setIsConfirmPasswordShow] = useState(false);
   const [isEmployeeSelect, setIsEmployeeSelect] = useState(false);
 
   const {
     register,
     formState: { errors, isSubmitting },
     handleSubmit,
-    getValues,
     reset,
+    getValues,
   } = useForm();
 
   // Submit Handler
@@ -31,7 +30,7 @@ export const Login = () => {
     // ...
     await new Promise((resolve) => setTimeout(resolve, 1000));
     toast.success(
-      `Hey there, ${getValues("email").split("@")[0]}. Welcome back!`,
+      `Hey there, ${getValues("email").split("@")[0]}. Welcome to the family!`,
       {
         position: "top-center",
         autoClose: 2000,
@@ -44,33 +43,8 @@ export const Login = () => {
 
   return (
     <>
-      <StoreProvider>
-        <AuthHeader />
-      </StoreProvider>
-      <div className="bg-[#F5F5F5] hero-sec">
-        <div className="flex justify-between max-w-screen-xl px-4 mx-auto sm:px-10 max-lg:gap-8 max-md:items-center max-md:flex-col py-28">
-          <div className="left-sec">
-            <div className="texts">
-              <h2 className="mb-6 text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
-                Welcome to <span className="font-bold ">Job</span>
-                <span className="text-[#535353] font-bold">Search</span>!
-              </h2>
-              <p className="max-w-md text-sm md:text-base lg:max-w-xl lg:text-xl xl:text-2xl">
-                Lorem ipsum dolor sit amet consectetur. Nullam ullamcorper
-                pulvinar velit diam ultrices. Pharetra adipiscing consequat ac
-                vulputate euismod.
-              </p>
-            </div>
-            <div className="max-w-xs lg:max-w-sm xl:w-full mt-9">
-              <Image
-                src="/assets/images/userImg.webp"
-                alt="userImg"
-                className="w-full"
-                width={457}
-                height={327}
-              />
-            </div>
-          </div>
+      <section className="signup bg-[#F5F5F5]">
+        <div className="flex items-center justify-center max-w-screen-xl px-4 mx-auto sm:px-10 max-lg:gap-8 max-md:items-center max-md:flex-col py-28">
           <div className="w-full max-w-lg p-10 bg-white rounded-md md:max-w-sm lg:max-w-md right-sec">
             <div className="flex justify-center gap-16 mb-8">
               <button
@@ -121,7 +95,7 @@ export const Login = () => {
                 <div className="relative">
                   <input
                     {...register("password", {
-                      required: "Please enter a password",
+                      required: "Password is required",
                       minLength: {
                         value: 6,
                         message: "Password must be at least 6 characters",
@@ -151,22 +125,60 @@ export const Login = () => {
                   {errors.password?.message as string}
                 </p>
               </div>
-              <div className="flex items-center justify-end">
-                <Link
-                  href="/forgot"
-                  className="text-sm text-[#00B2FF] font-medium hover:underline"
-                >
-                  Forgot password?
-                </Link>
+              <div className="confirm-password-input">
+                <div className="relative">
+                  <input
+                    {...register("confirmPassword", {
+                      required: "Please confirm your password",
+                      validate: (value) =>
+                        value === getValues("password") ||
+                        "Passwords do not match!",
+                    })}
+                    type={`${isConfirmPasswordShow ? "text" : "password"}`}
+                    name="confirmPassword"
+                    id="confirmPassword"
+                    placeholder="Re-enter Password"
+                    className="rounded outline-none w-full p-3 bg-white shadow-[0px_2px_15px_0px_rgba(0,0,0,0.1)]"
+                  />
+                  <IoEyeOffSharp
+                    onClick={() =>
+                      setIsConfirmPasswordShow(!isConfirmPasswordShow)
+                    }
+                    className={`
+                    ${
+                      isConfirmPasswordShow ? "hidden" : ""
+                    } absolute text-xl -translate-y-1/2 text-[#CDCDCD] cursor-pointer right-6 login-input-eye top-1/2`}
+                  />
+                  <IoEyeSharp
+                    onClick={() =>
+                      setIsConfirmPasswordShow(!isConfirmPasswordShow)
+                    }
+                    className={`${
+                      isConfirmPasswordShow ? "" : "hidden"
+                    } absolute text-xl text-[#CDCDCD] -translate-y-1/2 cursor-pointer right-6 login-input-eye top-1/2`}
+                  />
+                </div>
+                <p className="mt-1 ml-1 text-sm text-red-500 error">
+                  {errors.confirmPassword?.message as string}
+                </p>
               </div>
               <button
                 disabled={isSubmitting}
                 type="submit"
                 className="disabled:opacity-50 w-full bg-[#1976D2] shadow-[0px_2px_15px_0px_rgba(0,0,0,0.1)] text-white font-medium rounded-md text-sm py-4 hover:bg-[#1660A5] ease-linear duration-200"
               >
-                {isSubmitting ? "Logging in..." : "Login"}
+                {isSubmitting ? "Signing up..." : "Sign Up"}
               </button>
             </form>
+            <p className="mt-5 text-xs text-center sm:text-sm">
+              By clicking{" "}
+              <span className="text-[#1976D2] font-semibold">Sign up</span> or
+              Continue, you agree to our{" "}
+              <span className="text-[#00B2FF]">User Agreement</span>,&nbsp;
+              <span className="text-[#00B2FF]">Privacy Policy</span>
+              ,&nbsp;and&nbsp;
+              <span className="text-[#00B2FF]">Cookie Policy</span>
+            </p>
             <div className="flex flex-col items-center continue-with-google">
               <p className="text-[#A2A2A2] font-medium text-center my-5 text-sm">
                 Or continue with
@@ -199,72 +211,21 @@ export const Login = () => {
             </div>
             <div className="my-8 font-semibold text-center">
               <p className="text-base sm:text-lg">
-                Not a member?&nbsp;
+                Already a member?{" "}
                 <Link
-                  href="/signup"
+                  href="/login"
                   className="text-[#1976D2] font-bold hover:text-[#1660A5] ease-linear duration-200"
                 >
-                  Sign Up
+                  Log In
                 </Link>
               </p>
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex justify-between max-w-screen-xl px-10 mx-auto max-md:gap-10 max-md:flex-col max-md:items-center suggestion-sec py-28">
-        <div className="left">
-          <div className="max-w-sm space-y-3 md:max-w-xs text-container">
-            <h2 className="text-[#535353] text-3xl lg:text-4xl leading-10 md:leading-[60px] font-bold">
-              Find the right job for you!
-            </h2>
-            <p className="text-[#535353] text-sm lg:text-base">
-              Lorem ipsum dolor sit amet consectetur. Nullam ullamcorper
-              pulvinar velit diam ultrices.
-            </p>
-          </div>
-        </div>
-        <div className="right">
-          <p className="mb-4 text-xs text-[#535353]">Suggested searches:</p>
-          <div className="max-w-sm lg:max-w-md tags">
-            <ul className="flex flex-wrap gap-3 font-medium text-[#535353]">
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Sales
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Marketing
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Finance
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Engineering
-              </li>
-              <li className=" py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Retail Associate
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Human Resources
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                IT/ICT
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Sales
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Marketing
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Finance
-              </li>
-              <li className="py-1 px-3 cursor-pointer ease-linear duration-200 hover:bg-[#1976D2] hover:text-white border hover:border-[#1976D2]s border-[#535353] rounded-md">
-                Engineering
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      </section>
       <Footer />
     </>
   );
 };
+
+export default Signup;
