@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { poppins } from "./ui/fonts";
+import { HomeHeader } from "@/app/ui/home/HomeHeader";
 
 import "./globals.css";
 
@@ -16,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased`}>{children}</body>
+      <body className={`${poppins.className} antialiased`}>
+        <HomeHeader />
+        {children}
+      </body>
     </html>
   );
 }

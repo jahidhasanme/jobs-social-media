@@ -9,10 +9,11 @@ export const Notification = () => {
       <div className="flex items-center gap-3 user-and-notification">
         <div className="w-12 h-12 user-img">
           <Image
+            className="object-cover w-full h-full rounded-full"
             src="/assets/images/naruto-profile.jpg"
             alt="naruto-profile"
             width={438}
-            height={780}
+            height={438}
           />
         </div>
         <p className="font-medium">

@@ -1,6 +1,5 @@
 "use client";
 
-import { HomeHeader } from "@/app/ui/home/HomeHeader";
 import { UsersPostContainer } from "@/app/ui/home/UsersPostContainer";
 import { UserProfile } from "@/app/ui/home/UserProfile";
 import { RecentJobPosts } from "@/app/ui/home/RecentJobPosts";
@@ -13,7 +12,6 @@ const Home = () => {
 
   return (
     <>
-      <HomeHeader />
       <main
         className="overflow-hidden h-screen px-4 xsm:px-10 py-7 bg-[#F5F5F5]"
         ref={homeRef}

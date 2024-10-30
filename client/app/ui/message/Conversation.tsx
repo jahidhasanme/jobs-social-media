@@ -1,5 +1,7 @@
+"use client";
+
+import Image from "next/image";
 import { useEffect, useRef } from "react";
-import imageDemo from "../../assets/images/common-images/message-demo.png";
 
 // Icons
 import { IoNotificationsOutline } from "react-icons/io5";
@@ -8,7 +10,6 @@ import { PiFileDoc } from "react-icons/pi";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { FaImage } from "react-icons/fa6";
 import { IoSend } from "react-icons/io5";
-import Image from "next/image";
 
 export const Conversation = () => {
   // reference for the message container (div)
@@ -17,7 +18,9 @@ export const Conversation = () => {
   // This function scroll the message to bottom
   const scrollToBottom = () => {
     if (messages.current) {
-      messages.current.scrollTop = messages.current.scrollHeight;
+      (messages.current as HTMLDivElement).scrollTop = (
+        messages.current as HTMLDivElement
+      ).scrollHeight;
     }
   };
 
@@ -118,7 +121,13 @@ export const Conversation = () => {
 
             <div className="message-received">
               <div className="flex flex-col items-start my-4 message">
-                <img src={imageDemo} alt="" />
+                <Image
+                  src="/assets/images/message-demo.png"
+                  alt="image-demo"
+                  className="object-cover w-full h-full rounded-md"
+                  width={229}
+                  height={229}
+                />
                 <p className="text-[#CDCDCD] text-xs mt-1">
                   2:00 pm 26 Jul Delivered
                 </p>

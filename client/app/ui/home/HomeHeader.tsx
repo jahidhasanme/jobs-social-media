@@ -53,6 +53,7 @@ export const HomeHeader = () => {
               href="/"
               className="text-[#535353] flex flex-col items-center justify-center gap-2 home-icon"
               activeClassName="!text-[#1976D2]"
+              exact={true}
             >
               <AiOutlineHome className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold">Home</span>
@@ -61,6 +62,7 @@ export const HomeHeader = () => {
               href="/jobs"
               className="text-[#535353] flex flex-col items-center gap-2 jobs-icon"
               activeClassName="!text-[#1976D2]"
+              exact={true}
             >
               <MdOutlineWorkOutline className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold">JOBS</span>
@@ -69,6 +71,7 @@ export const HomeHeader = () => {
               href="/message"
               className="text-[#535353] flex flex-col items-center gap-2 message-icon"
               activeClassName="!text-[#1976D2]"
+              exact={true}
             >
               <MdOutlineMessage className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold ">MESSAGING</span>
@@ -77,6 +80,7 @@ export const HomeHeader = () => {
               href="/notifications"
               className="text-[#535353] flex flex-col items-center gap-2 notification-icon"
               activeClassName="!text-[#1976D2]"
+              exact={true}
             >
               <MdOutlineNotificationsActive className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold ">NOTIFICATIONS</span>
@@ -103,6 +107,7 @@ export const HomeHeader = () => {
               href="/packages"
               className="text-[#FFC107] mx-4 before:content-[''] before:h-1/2 before:top-1/2 before:-translate-y-1/2 before:w-[1px] before:absolute before:-left-4 relative before:bg-[#535353] flex flex-col items-center gap-2 home-icon"
               activeClassName="!text-[#1976D2]"
+              exact={true}
             >
               <IoDiamond className="text-xl cursor-pointer lg:text-2xl" />
               <span className="flex items-center text-sm font-semibold">
