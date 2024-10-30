@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ActiveLink from "../common/ActiveLink";
@@ -32,7 +34,7 @@ export const HomeHeader = () => {
       <header className="bg-white shadow-[0px_2px_10px_0px_rgba(0,0,0,0.25)] header">
         <div className="flex items-center justify-between px-4 py-5 mx-auto xsm:px-10 max-w-screen-2xl content">
           <div className="flex gap-4 logo-search-input">
-            <Link href="/home">
+            <Link href="/">
               <h1 className="text-2xl font-bold cursor-pointer sm:text-3xl">
                 J<span className="text-[#535353]">S</span>
               </h1>
@@ -48,33 +50,33 @@ export const HomeHeader = () => {
           </div>
           <div className="flex gap-4 lg:gap-6 navigation">
             <ActiveLink
-              href="/home"
+              href="/"
               className="text-[#535353] flex flex-col items-center justify-center gap-2 home-icon"
-              activeClassName="text-[#1976D2]"
+              activeClassName="!text-[#1976D2]"
             >
               <AiOutlineHome className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold">Home</span>
             </ActiveLink>
             <ActiveLink
-              href="/home/jobs"
+              href="/jobs"
               className="text-[#535353] flex flex-col items-center gap-2 jobs-icon"
-              activeClassName="text-[#1976D2]"
+              activeClassName="!text-[#1976D2]"
             >
               <MdOutlineWorkOutline className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold">JOBS</span>
             </ActiveLink>
             <ActiveLink
-              href="/home/message"
+              href="/message"
               className="text-[#535353] flex flex-col items-center gap-2 message-icon"
-              activeClassName="text-[#1976D2]"
+              activeClassName="!text-[#1976D2]"
             >
               <MdOutlineMessage className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold ">MESSAGING</span>
             </ActiveLink>
             <ActiveLink
-              href="/home/notifications"
+              href="/notifications"
               className="text-[#535353] flex flex-col items-center gap-2 notification-icon"
-              activeClassName="text-[#1976D2]"
+              activeClassName="!text-[#1976D2]"
             >
               <MdOutlineNotificationsActive className="text-xl cursor-pointer lg:text-2xl" />
               <span className="text-sm font-semibold ">NOTIFICATIONS</span>
@@ -85,7 +87,7 @@ export const HomeHeader = () => {
                 e.stopPropagation();
               }}
               className={`${
-                isProfileOpen ? "text-[#1976D2]" : "text-[#535353]"
+                isProfileOpen ? "!text-[#1976D2]" : "text-[#535353]"
               } relative flex flex-col items-center gap-2 outline-none cursor-pointer profile-icon`}
             >
               <FaRegUserCircle className="text-xl cursor-pointer lg:text-2xl" />
@@ -98,9 +100,9 @@ export const HomeHeader = () => {
               />
             </div>
             <ActiveLink
-              href="/home/packages"
+              href="/packages"
               className="text-[#FFC107] mx-4 before:content-[''] before:h-1/2 before:top-1/2 before:-translate-y-1/2 before:w-[1px] before:absolute before:-left-4 relative before:bg-[#535353] flex flex-col items-center gap-2 home-icon"
-              activeClassName="text-[#1976D2]"
+              activeClassName="!text-[#1976D2]"
             >
               <IoDiamond className="text-xl cursor-pointer lg:text-2xl" />
               <span className="flex items-center text-sm font-semibold">

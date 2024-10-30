@@ -42,7 +42,7 @@ export const JobsForYou = () => {
         <div className="relative flex gap-3 pb-4 border-b border-[#f5f5f5] mt-4 job">
           <div className="job-logo w-14 h-14">
             <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/2048px-LEGO_logo.svg.png"
+              src="/assets/images/lego-logo.png"
               className="object-cover w-full h-full rounded-md"
               width={390}
               height={390}
@@ -65,7 +65,7 @@ export const JobsForYou = () => {
         <div className="relative flex gap-3 pb-4 border-b border-[#f5f5f5] mt-4 job">
           <div className="job-logo w-14 h-14">
             <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/2048px-LEGO_logo.svg.png"
+              src="/assets/images/lego-logo.png"
               className="object-cover w-full h-full rounded-md"
               width={390}
               height={390}
@@ -88,7 +88,7 @@ export const JobsForYou = () => {
         <div className="relative flex gap-3 pb-4 mt-4 job">
           <div className="job-logo w-14 h-14">
             <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/2048px-LEGO_logo.svg.png"
+              src="/assets/images/lego-logo.png"
               className="object-cover w-full h-full rounded-md"
               width={390}
               height={390}

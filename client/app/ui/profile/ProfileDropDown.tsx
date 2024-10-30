@@ -24,11 +24,11 @@ export const ProfileDropDown = ({
       <div className="flex items-center gap-3 pb-3 profile-info">
         <div className="flex-shrink-0 w-12 h-12 profile-img">
           <Image
+            src="/assets/images/naruto-profile.jpg"
             className="object-cover w-full h-full rounded-full"
-            src="https://mrwallpaper.com/images/hd/anime-naruto-holding-ninja-knife-dv3cqw2dgcbwupwx.jpg"
             alt="profile-pic"
-            width={390}
-            height={219}
+            width={780}
+            height={438}
           />
         </div>
         <div className="flex flex-col items-start texts">

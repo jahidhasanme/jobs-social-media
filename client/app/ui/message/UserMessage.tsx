@@ -1,10 +1,12 @@
+import Image from "next/image";
+
 // Icons
 import { IoNotificationsOutline } from "react-icons/io5";
 import { IoNotificationsOffOutline } from "react-icons/io5";
 
 export const UserMessage = () => {
   // This function take big string message and convert it in to small
-  function truncateText(text, limit) {
+  function truncateText(text: string, limit: number) {
     if (text.length <= limit) return text;
     return text.slice(0, limit) + "...";
   }
@@ -12,10 +14,12 @@ export const UserMessage = () => {
   return (
     <div className="relative flex items-center gap-3 p-4 bg-white rounded message">
       <div className="flex-shrink-0 w-12 h-12">
-        <img
+        <Image
           className="object-cover w-full h-full rounded-full"
-          src="https://mrwallpaper.com/images/hd/anime-naruto-holding-ninja-knife-dv3cqw2dgcbwupwx.jpg"
-          alt=""
+          src="/assets/images/naruto-profile.jpg"
+          alt="naruto-profile"
+          width={438}
+          height={780}
         />
       </div>
       <div className="text text-[#535353]">

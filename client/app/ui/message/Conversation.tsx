@@ -8,6 +8,7 @@ import { PiFileDoc } from "react-icons/pi";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { FaImage } from "react-icons/fa6";
 import { IoSend } from "react-icons/io5";
+import Image from "next/image";
 
 export const Conversation = () => {
   // reference for the message container (div)
@@ -32,10 +33,12 @@ export const Conversation = () => {
       <div className="relative flex items-center justify-between m-4 user-info">
         <div className="flex gap-3 user">
           <div className="w-12 h-12 user-image">
-            <img
+            <Image
+              src="/assets/images/naruto-profile.jpg"
+              alt="naruto-profile"
               className="object-cover w-full h-full rounded-full"
-              src="https://mrwallpaper.com/images/hd/anime-naruto-holding-ninja-knife-dv3cqw2dgcbwupwx.jpg"
-              alt=""
+              width={438}
+              height={780}
             />
           </div>
           <div className="text">

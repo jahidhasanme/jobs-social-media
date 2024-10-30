@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 // Icons
 import { IoDiamond } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
@@ -13,15 +15,19 @@ export const UserProfile = () => {
       <div className="bg-white profile">
         {/* Profile img */}
         <div className="h-16 mb-16 banner-logo">
-          <img
-            src="https://img.goodfon.com/original/1920x1080/3/22/naruto-naruto-barion-mode-rezhim-bariona-sila-moshch.jpg"
+          <Image
+            src="/assets/images/naruto-banner.jpg"
             className="object-cover w-full h-full"
-            alt=""
+            width={1920}
+            height={1080}
+            alt="naruto-banner"
           />
-          <img
+          <Image
+            src="/assets/images/naruto-profile.jpg"
             className="relative z-10 object-cover w-20 h-20 mx-auto -my-8 border-4 border-white rounded-full"
-            src="https://mrwallpaper.com/images/hd/anime-naruto-holding-ninja-knife-dv3cqw2dgcbwupwx.jpg"
-            alt=""
+            alt="naruto-image"
+            width={321}
+            height={180}
           />
         </div>
         {/* Bio sec */}
