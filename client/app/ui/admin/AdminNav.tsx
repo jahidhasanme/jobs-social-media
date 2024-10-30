@@ -11,6 +11,7 @@ export const AdminNav = () => {
           href="/admin"
           className="w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer"
           activeClassName="bg-[rgba(255,255,255,0.4)]"
+          exact={true}
         >
           Dashboard
         </ActiveLink>
@@ -18,6 +19,7 @@ export const AdminNav = () => {
           href="/admin/employers"
           className="w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer"
           activeClassName="bg-[rgba(255,255,255,0.4)]"
+          exact={true}
         >
           Employers
         </ActiveLink>
@@ -25,6 +27,7 @@ export const AdminNav = () => {
           href="/admin/employees"
           className="w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer"
           activeClassName="bg-[rgba(255,255,255,0.4)]"
+          exact={true}
         >
           Users/Employees
         </ActiveLink>
@@ -32,6 +35,7 @@ export const AdminNav = () => {
           href="/admin/packages"
           className="w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer"
           activeClassName="bg-[rgba(255,255,255,0.4)]"
+          exact={true}
         >
           Packages
         </ActiveLink>
@@ -39,6 +43,7 @@ export const AdminNav = () => {
           href="/admin/email"
           className="w-full px-4 lg:px-6 py-3 lg:py-4 font-semibold lg:rounded-l hover:bg-[rgba(255,255,255,0.4)] ease-linear duration-200 cursor-pointer"
           activeClassName="bg-[rgba(255,255,255,0.4)]"
+          exact={true}
         >
           Email
         </ActiveLink>
