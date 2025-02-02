@@ -14,7 +14,8 @@ const signupController = async (req, res) => {
         if (isValidPassword) {
           const userObject = {
             userid: user._id,
-            email: user.email
+            email: user.email,
+            role: user.role
           };
           const secretKey = createSecretKey(process.env.JWT_SECRET, "utf-8");
           // generate token
