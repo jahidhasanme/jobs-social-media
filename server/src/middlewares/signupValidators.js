@@ -6,6 +6,7 @@ export const doSignupValidators = [
     .withMessage(
       "Password must be at least 8 characters long & should contain at least 1 lowercase, 1 uppercase, 1 number & 1 symbol"
     ),
+    check("role").isIn(["user", "employer"]).withMessage("Role is required"),
 ];
 
 export const doSignupValidationHandler = function (req, res, next) {

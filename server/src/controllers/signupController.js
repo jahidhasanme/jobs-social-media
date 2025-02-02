@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import User from "../models/User.js";
 const signupController = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, role } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
@@ -10,6 +10,7 @@ const signupController = async (req, res) => {
       const user = new User({
         email,
         password: hashedPassword,
+        role,
       });
       await user.save();
       return res.status(200).json({ message: "User created" });
