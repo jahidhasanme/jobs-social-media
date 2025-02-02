@@ -3,7 +3,8 @@
 import { UserMessages } from "@/app/ui/message/UserMessages";
 import { Conversation } from "@/app/ui/message/Conversation";
 import { InviteSchedule } from "@/app/ui/message/InviteSchedule";
-import { useAdjustHeight } from "../hooks/useAdjustHeight";
+import { useAdjustHeight } from "@/app/hooks/useAdjustHeight";
+
 
 const Message = () => {
   // Adjust container based on screen view-height
