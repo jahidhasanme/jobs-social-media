@@ -9,6 +9,8 @@ import { Footer } from "@/app/ui/auth/Footer";
 import { IoEyeOffSharp } from "react-icons/io5";
 import { IoEyeSharp } from "react-icons/io5";
 import { FieldValues, useForm } from "react-hook-form";
+import StoreProvider from "@/app/store/slices/StoreProvider";
+import { AuthHeader } from "@/app/ui/auth/AuthHeader";
 
 const Signup = () => {
   // States
@@ -43,27 +45,28 @@ const Signup = () => {
 
   return (
     <>
+      <StoreProvider>
+        <AuthHeader />
+      </StoreProvider>
       <section className="signup bg-[#F5F5F5]">
         <div className="flex items-center justify-center max-w-screen-xl px-4 mx-auto sm:px-10 max-lg:gap-8 max-md:items-center max-md:flex-col py-28">
           <div className="w-full max-w-lg p-10 bg-white rounded-md md:max-w-sm lg:max-w-md right-sec">
             <div className="flex justify-center gap-16 mb-8">
               <button
                 onClick={() => setIsEmployeeSelect(false)}
-                className={`${
-                  isEmployeeSelect
+                className={`${isEmployeeSelect
                     ? ""
                     : "!text-[#1976D2] border-b-2 border-[#1976D2]"
-                } font-semibold text-sm text-[#A2A2A2] xsm:text-lg  pb-1`}
+                  } font-semibold text-sm text-[#A2A2A2] xsm:text-lg  pb-1`}
               >
                 User/Employee
               </button>
               <button
                 onClick={() => setIsEmployeeSelect(true)}
-                className={`${
-                  isEmployeeSelect
+                className={`${isEmployeeSelect
                     ? "border-b-2 border-[#1976D2] !text-[#1976D2]"
                     : ""
-                } font-semibold text-sm xsm:text-lg text-[#A2A2A2] pb-1`}
+                  } font-semibold text-sm xsm:text-lg text-[#A2A2A2] pb-1`}
               >
                 Employer
               </button>
@@ -110,15 +113,13 @@ const Signup = () => {
                   <IoEyeOffSharp
                     onClick={() => setIsPasswordShow(!isPasswordShow)}
                     className={`
-                    ${
-                      isPasswordShow ? "hidden" : ""
-                    } absolute text-xl -translate-y-1/2 text-[#CDCDCD] cursor-pointer right-6 login-input-eye top-1/2`}
+                    ${isPasswordShow ? "hidden" : ""
+                      } absolute text-xl -translate-y-1/2 text-[#CDCDCD] cursor-pointer right-6 login-input-eye top-1/2`}
                   />
                   <IoEyeSharp
                     onClick={() => setIsPasswordShow(!isPasswordShow)}
-                    className={`${
-                      isPasswordShow ? "" : "hidden"
-                    } absolute text-xl text-[#CDCDCD] -translate-y-1/2 cursor-pointer right-6 login-input-eye top-1/2`}
+                    className={`${isPasswordShow ? "" : "hidden"
+                      } absolute text-xl text-[#CDCDCD] -translate-y-1/2 cursor-pointer right-6 login-input-eye top-1/2`}
                   />
                 </div>
                 <p className="mt-1 ml-1 text-sm text-red-500 error">
@@ -145,17 +146,15 @@ const Signup = () => {
                       setIsConfirmPasswordShow(!isConfirmPasswordShow)
                     }
                     className={`
-                    ${
-                      isConfirmPasswordShow ? "hidden" : ""
-                    } absolute text-xl -translate-y-1/2 text-[#CDCDCD] cursor-pointer right-6 login-input-eye top-1/2`}
+                    ${isConfirmPasswordShow ? "hidden" : ""
+                      } absolute text-xl -translate-y-1/2 text-[#CDCDCD] cursor-pointer right-6 login-input-eye top-1/2`}
                   />
                   <IoEyeSharp
                     onClick={() =>
                       setIsConfirmPasswordShow(!isConfirmPasswordShow)
                     }
-                    className={`${
-                      isConfirmPasswordShow ? "" : "hidden"
-                    } absolute text-xl text-[#CDCDCD] -translate-y-1/2 cursor-pointer right-6 login-input-eye top-1/2`}
+                    className={`${isConfirmPasswordShow ? "" : "hidden"
+                      } absolute text-xl text-[#CDCDCD] -translate-y-1/2 cursor-pointer right-6 login-input-eye top-1/2`}
                   />
                 </div>
                 <p className="mt-1 ml-1 text-sm text-red-500 error">
