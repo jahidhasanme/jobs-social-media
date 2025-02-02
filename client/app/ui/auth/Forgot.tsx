@@ -1,16 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { AuthHeader } from "./AuthHeader";
 import { Bounce, toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export const Forgot = () => {
   const [credentials, setCredentials] = useState({
     email: "",
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
   // Validation Config Obj
-  const validationConfig = {
+  type ValidationRule = { required?: boolean; message: string; pattern?: RegExp; minLength?: number };
+  type ValidationConfig = { [key: string]: ValidationRule[] };
+
+  const validationConfig: ValidationConfig = {
     email: [
       { required: true, message: "Email is required" },
       {
@@ -25,16 +28,16 @@ export const Forgot = () => {
   };
 
   // Validation Function
-  const validate = (formData) => {
-    const errorsData = {};
+  const validate = (formData: { [key: string]: string }) => {
+    const errorsData: { [key: string]: string } = {};
     Object.entries(formData).forEach(([key, value]) => {
-      validationConfig[key].some((rule) => {
+      (validationConfig[key] as ValidationRule[]).some((rule: ValidationRule) => {
         if (rule.required && !value) {
           errorsData[key] = rule.message;
           return true;
         }
 
-        if (rule.minLength && value.length < rule.minLength) {
+        if (rule.minLength && (value as string).length < rule.minLength) {
           errorsData[key] = rule.message;
           return true;
         }
@@ -51,7 +54,7 @@ export const Forgot = () => {
   };
 
   //   Handle Change Eventlistener
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setCredentials((prevState) => ({
       ...prevState,
@@ -61,7 +64,7 @@ export const Forgot = () => {
   };
 
   // Handle Submit Eventlistener
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const errorsData = validate(credentials);
     if (!Object.values(errorsData).length) {

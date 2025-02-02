@@ -4,7 +4,7 @@ export const SetJobDescription = () => {
   const navigate = useNavigate();
 
   // Handle Submit Eventlistener
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // const errorsData = validate(credentials);
     // if (!Object.values(errorsData).length) {

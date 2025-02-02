@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { AuthHeader } from "./AuthHeader";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
@@ -21,11 +21,13 @@ export const Signup = () => {
     password: "",
     confirmPassword: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isEmployeeSelect, setIsEmployeeSelect] = useState(false);
 
   // Validation Config Obj
-  const validationConfig = {
+  const validationConfig: {
+    [key: string]: { required?: boolean; message: string; pattern?: RegExp; minLength?: number; match?: string }[];
+  } = {
     email: [
       { required: true, message: "Please enter an email" },
       {
@@ -46,11 +48,10 @@ export const Signup = () => {
     ],
   };
 
-  // Validation Function
-  const validate = (formData) => {
-    const errorsData = {};
+  const validate = (formData: { [key: string]: string }) => {
+    const errorsData: { [key: string]: string } = {};
     Object.entries(formData).forEach(([key, value]) => {
-      validationConfig[key].some((rule) => {
+      validationConfig[key].some((rule: { required?: boolean; message: string; pattern?: RegExp; minLength?: number; match?: string }) => {
         if (rule.required && !value) {
           errorsData[key] = rule.message;
           return true;
@@ -78,7 +79,7 @@ export const Signup = () => {
   };
 
   // Handle Change Eventlistener
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setCredentials((prevState) => ({
       ...prevState,
@@ -88,7 +89,7 @@ export const Signup = () => {
   };
 
   // Handle Submit Eventlistener
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const errorsData = validate(credentials);
     if (!Object.values(errorsData).length) {
@@ -144,7 +145,7 @@ export const Signup = () => {
                     placeholder="Email"
                   />
                   <p className="mt-1 ml-1 text-sm text-red-500 error">
-                    {errors.email}
+                    {errors.email && errors.email}
                   </p>
                 </div>
                 <div className="password-input">
@@ -173,7 +174,7 @@ export const Signup = () => {
                     />
                   </div>
                   <p className="mt-1 ml-1 text-sm text-red-500 error">
-                    {errors.password}
+                    {errors.password && errors.password}
                   </p>
                 </div>
                 <div className="confirm-password-input">
@@ -206,7 +207,7 @@ export const Signup = () => {
                     />
                   </div>
                   <p className="mt-1 ml-1 text-sm text-red-500 error">
-                    {errors.confirmPassword}
+                    {errors.confirmPassword && errors.confirmPassword}
                   </p>
                 </div>
                 <button

@@ -60,7 +60,7 @@ export const UsersPostContainer = () => {
               description={description}
               likeCount={likeCount}
               share={share}
-              images={images}
+              images={images || []}
             />
           );
         }

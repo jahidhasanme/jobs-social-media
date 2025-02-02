@@ -1,6 +1,6 @@
 import { Login } from "@/app/ui/auth/Login";
 
-export const LandingPage = () => {
+const LandingPage = () => {
   return (
     <section className="landing-page">
       <Login />
@@ -8,4 +8,4 @@ export const LandingPage = () => {
   );
 };
 
-export default Login;
+export default LandingPage;

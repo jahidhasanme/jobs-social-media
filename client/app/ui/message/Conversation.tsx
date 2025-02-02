@@ -13,7 +13,7 @@ import { IoSend } from "react-icons/io5";
 
 export const Conversation = () => {
   // reference for the message container (div)
-  const messages = useRef();
+  const messages = useRef<HTMLDivElement>(null);
 
   // This function scroll the message to bottom
   const scrollToBottom = () => {

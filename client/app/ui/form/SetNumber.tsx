@@ -11,7 +11,7 @@ export const SetNumber = () => {
 
   // Credentials and error state
   const [ph, setPh] = useState("");
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<{ ph?: string }>({});
 
   // Validation Config Obj
   const validationConfig = {
@@ -20,7 +20,7 @@ export const SetNumber = () => {
 
   // Validation Function
   const validate = () => {
-    const errorsData = {};
+    const errorsData: { ph?: string } = {};
 
     if (validationConfig.ph.required && !ph) {
       errorsData.ph = validationConfig.ph.message;
@@ -31,9 +31,9 @@ export const SetNumber = () => {
   };
 
   // Handle Submit Eventlistener
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const errorsData = validate(ph);
+    const errorsData = validate();
     if (!Object.values(errorsData).length) {
       //Checks if every field is filled if it is then redirect to number verification page
       navigate("/signup/set-job-description");

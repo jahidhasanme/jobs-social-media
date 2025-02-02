@@ -10,17 +10,17 @@ export const SetName = () => {
     firstName: "",
     lastName: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<{ firstName?: string; lastName?: string }>({});
 
   // Validation Config Obj
-  const validationConfig = {
+  const validationConfig: { [key: string]: { required: boolean; message: string }[] } = {
     firstName: [{ required: true, message: "First name is required" }],
     lastName: [{ required: true, message: "Last name is required" }],
   };
 
   // Validation Function
-  const validate = (formData) => {
-    const errorsData = {};
+  const validate = (formData: { [key: string]: string }) => {
+    const errorsData: { [key: string]: string } = {};
     Object.entries(formData).forEach(([key, value]) => {
       validationConfig[key].some((rule) => {
         if (rule.required && !value) {
@@ -35,7 +35,7 @@ export const SetName = () => {
   };
 
   //   Handle Change Eventlistener
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setCredentials((prevState) => ({
       ...prevState,
@@ -45,7 +45,7 @@ export const SetName = () => {
   };
 
   // Handle Submit Eventlistener
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const errorsData = validate(credentials);
     if (!Object.values(errorsData).length) {

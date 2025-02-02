@@ -2,7 +2,6 @@ import Image from "next/image";
 
 // Icons
 import { IoNotificationsOutline } from "react-icons/io5";
-import { IoNotificationsOffOutline } from "react-icons/io5";
 
 export const UserMessage = () => {
   // This function take big string message and convert it in to small

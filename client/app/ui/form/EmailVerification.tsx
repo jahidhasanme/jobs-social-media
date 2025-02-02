@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, ClipboardEvent, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
 
@@ -14,9 +14,9 @@ export const EmailVerification = () => {
   const [otp, setOtp] = useState(new Array(6).fill(""));
 
   //   Function to handle change event of otp fields
-  function handleChange(e, i) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>, i: number) {
     // if value is something else than number return false
-    if (isNaN(e.target.value)) return false;
+    if (isNaN(Number(e.target.value))) return false;
 
     // if its a number then set the number to otp
     setOtp([
@@ -25,17 +25,17 @@ export const EmailVerification = () => {
 
     // when typing otp it will automatically focus on next input field
     if (e.target.value && e.target.nextSibling) {
-      e.target.nextSibling.focus();
+      (e.target.nextSibling as HTMLInputElement).focus();
     }
   }
 
   // handle paste on otp field
-  function handlePaste(e) {
+  function handlePaste(e: ClipboardEvent<HTMLInputElement>) {
     // getting data from clipboard
     const value = e.clipboardData.getData("text");
 
     // if value is something else than number return false
-    if (isNaN(value)) return false;
+    if (isNaN(Number(value))) return false;
 
     // Making an array based on copied text
     const updatedValue = value.toString().split("");
