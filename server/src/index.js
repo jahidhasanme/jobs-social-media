@@ -4,6 +4,7 @@ import helmet from "helmet";
 import cors from "cors";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import loginRoute from "./routes/loginRoute.js";
 import signupRoute from "./routes/signupRoute.js";
 
 const port = process.env.PORT || 3000;
@@ -19,12 +20,13 @@ try {
 // Middlewares
 app.use(express.static("public")); // serve static files
 app.use(express.json()); // parse json
-app.use(cookieParser()); // parse cookies
+app.use(cookieParser(process.env.COOKIE_SECRET)); // parse cookies
 app.use(helmet()); // secure express app
 app.use(cors()) // allow cors
 app.use(compression()); // compress all responses
 
 // Routes
+app.use("/login", loginRoute);
 app.use("/signup", signupRoute)
 
 app.listen(port, () => {
