@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import loginRoute from "./routes/loginRoute.js";
 import signupRoute from "./routes/signupRoute.js";
+import profileRoute from "./routes/profileRoute.js";
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -28,6 +29,8 @@ app.use(compression()); // compress all responses
 // Routes
 app.use("/login", loginRoute);
 app.use("/signup", signupRoute)
+app.use("/profile", profileRoute);
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
