@@ -1,0 +1,26 @@
+{
+  "git.openRepositoryInParentFolders": "always",
+  "files.defaultLanguage": "${activeEditorLanguage}",
+  // improved intellisense
+  "editor.quickSuggestions": {
+    "strings": true,
+    "comments": true,
+    "other": "on"
+  },
+
+  // code formatting
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  "editor.insertSpaces": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "json.format.enable": true,
+  "javascript.format.enable": true,
+  "editor.formatOnSave": true
+}
