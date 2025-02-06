@@ -16,6 +16,8 @@ router.get("/", getPosts);
 router.get("/", getPaginatedPosts);
 router.post("/", doPostsValidators, doPostsValidationHandler, createPost);
 router.put("/", doPostsValidators, doPostsValidationHandler, updatePost);
+router.post("/", createPost);
+router.put("/", updatePost);
 router.delete("/", deletePost);
 
 export default router;
