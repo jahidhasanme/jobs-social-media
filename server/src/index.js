@@ -10,7 +10,6 @@ import loginRoute from "./routes/loginRoute.js";
 import postsRoute from "./routes/postsRoute.js";
 import profileRoute from "./routes/profileRoute.js";
 import signupRoute from "./routes/signupRoute.js";
-import postsRoute from "./routes/postsRoute.js";
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -37,7 +36,6 @@ app.use("/profile", profileRoute);
 app.use("/posts", postsRoute);
 app.use("/jobs", jobsRoute);
 app.use("/interview", interviewRoute);
-
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
