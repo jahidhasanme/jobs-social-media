@@ -38,6 +38,7 @@ export const createJob = async (req, res) => {
       message: "Job created successfully!",
     });
   } catch (error) {
+    console.log(error)
     res.status(500).send({
       error: "Internal server error!",
     });
