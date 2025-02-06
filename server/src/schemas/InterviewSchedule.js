@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 import User from "../models/User.js"
 
 const Schema = mongoose.Schema;
-
-const JobsSchema = new Schema({
+const InterviewScheduleSchema = new Schema({
   id: {
     type: String,
     required: true,
@@ -46,6 +45,6 @@ const JobsSchema = new Schema({
     type: String,
     required: true,
   },
-});
+})
 
-export default JobsSchema;
+export default InterviewScheduleSchema;

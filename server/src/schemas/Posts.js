@@ -34,14 +34,17 @@ const PostsSchema = new Schema({
   likeCount: {
     type: Number,
     required: true,
+    default: 0,
   },
   comments: {
     type: Number,
     required: true,
+    default: 0,
   },
   share: {
     type: Number,
     required: true,
+    default: 0,
   },
 });
 
