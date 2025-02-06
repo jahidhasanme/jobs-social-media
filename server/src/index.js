@@ -4,6 +4,7 @@ import cors from "cors";
 import express from "express";
 import helmet from "helmet";
 import mongoose from "mongoose";
+import interviewRoute from "./routes/interviewRoute.js";
 import jobsRoute from "./routes/jobsRoute.js";
 import loginRoute from "./routes/loginRoute.js";
 import postsRoute from "./routes/postsRoute.js";
@@ -34,6 +35,7 @@ app.use("/signup", signupRoute);
 app.use("/profile", profileRoute);
 app.use("/posts", postsRoute);
 app.use("/jobs", jobsRoute);
+app.use("/interview", interviewRoute);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
