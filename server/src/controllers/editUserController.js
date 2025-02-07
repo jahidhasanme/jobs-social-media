@@ -1,25 +1,28 @@
 import User from "../models/User.js";
 
 const editUser = async (req, res) => {
+  const { email } = req.body;
+
   try {
-    const user = User.findOne({ email });
-    if (user) {
-      await user.updateOne(req.body);
-      await user.save();
-      res.send({
-        message: "User edited successfully!",
-        data: user,
-      });
-    } else {
-      res.status(404).send({
-        error: "User not found!",
-      });
+    const updatedUser = await User.findOneAndUpdate(
+      { email },
+      { $set: req.body },
+      { new: true, runValidators: true },
+    );
+
+    if (!updatedUser) {
+      return res.status(404).json({ error: "User not found!" });
     }
-  } catch (error) {
-    res.status(500).send({
-      error: "Internal server error",
+
+    res.json({
+      message: "User edited successfully!",
+      data: updatedUser,
     });
+  } catch (error) {
+    console.error("Error updating user:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
+
 
 export default editUser;
