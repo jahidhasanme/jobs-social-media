@@ -38,7 +38,7 @@ export const createJob = async (req, res) => {
       message: "Job created successfully!",
     });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).send({
       error: "Internal server error!",
     });
@@ -47,19 +47,12 @@ export const createJob = async (req, res) => {
 
 export const updateJob = async (req, res) => {
   try {
-    const job = await AllJobs.findOne({ id: req.body.id });
-    if (job) {
-      await job.updateOne(req.body);
-      await job.save();
-      res.send({
-        message: "Job updated successfully!",
-        data: job,
-      });
-    } else {
-      res.status(404).send({
-        error: "Job not found!",
-      });
-    }
+    const updatedUser = await AllJobs.findOneAndUpdate({ id: req.body.id }, { $set: req.body });
+
+    res.send({
+      message: "Job updated successfully!",
+      data: updatedUser,
+    });
   } catch (error) {
     res.status(500).send({
       error: "Internal server error!",
