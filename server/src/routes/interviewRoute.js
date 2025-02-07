@@ -6,6 +6,7 @@ import {
   getInterviewSchedules,
   updateInterviewSchedule,
 } from "../controllers/interviewController.js";
+import { checkLogin } from "../middlewares/checkLogin.js";
 import {
   doInterviewValidationHandler,
   doInterviewValidators,
@@ -13,20 +14,22 @@ import {
 
 const router = express.Router();
 
-router.get("/", getInterviewSchedule);
-router.get("/", getInterviewSchedules);
+router.get("/", checkLogin, getInterviewSchedule);
+router.get("/", checkLogin, getInterviewSchedules);
 router.post(
   "/",
+  checkLogin,
   doInterviewValidators,
   doInterviewValidationHandler,
   createInterviewSchedule,
 );
 router.put(
   "/",
+  checkLogin,
   doInterviewValidators,
   doInterviewValidationHandler,
   updateInterviewSchedule,
 );
-router.delete("/", deleteInterviewSchedule);
+router.delete("/", checkLogin, deleteInterviewSchedule);
 
 export default router;
