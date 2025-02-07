@@ -71,7 +71,7 @@ export const deleteJob = async (req, res) => {
   try {
     const job = await AllJobs.findOne({ id: req.query.id });
     if (job) {
-      await job.deleteOne(job);
+      await AllJobs.deleteOne(job);
       res.send({
         message: "Job deleted successfully!",
         data: job,
