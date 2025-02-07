@@ -61,19 +61,11 @@ export const createPost = async (req, res) => {
 
 export const updatePost = async (req, res) => {
   try {
-    const post = await Posts.findOne({ id: req.body.id });
-    if (post) {
-      await post.updateOne(req.body);
-      await post.save();
-      res.send({
-        message: "Post updated successfully!",
-        data: post,
-      });
-    } else {
-      res.status(404).send({
-        error: "Post not found!",
-      });
-    }
+    const updatedPost = await Posts.findOneAndUpdate({ id: req.body.id }, {$set: req.body});
+    res.send({
+      message: "Post updated successfully!",
+      data: updatedPost,
+    });
   } catch (error) {
     res.status(500).send({
       error: "Internal server error!",
@@ -85,7 +77,7 @@ export const deletePost = async (req, res) => {
   try {
     const post = await Posts.findOne({ id: req.query.id });
     if (post) {
-      await post.deleteOne(post);
+      await Posts.deleteOne(post);
       res.send({
         message: "Post deleted successfully!",
         data: post,
