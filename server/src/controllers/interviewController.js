@@ -40,11 +40,10 @@ export const getInterviewSchedule = async (req, res) => {
 
 export const updateInterviewSchedule = async (req, res) => {
   try {
-    const interviewSchedule = await InterviewSchedule.findOne({
-      id: req.body.id,
-    });
-    interviewSchedule.updateOne(req.body);
-    interviewSchedule.save();
+    await InterviewSchedule.findOneAndUpdate(
+      { id: req.body.id },
+      { $set: req.body },
+    );
     res.send({
       message: "Interview Schedule update successful!",
     });
