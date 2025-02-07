@@ -60,7 +60,7 @@ export const deleteInterviewSchedule = async (req, res) => {
       email: req.query.email,
     });
     if (interviewSchedule) {
-      await interviewSchedule.deleteOne(interviewSchedule);
+      await InterviewSchedule.deleteOne(interviewSchedule);
       res.send({
         message: "Profile deleted successfully!",
         data: interviewSchedule,
