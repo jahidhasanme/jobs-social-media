@@ -9,6 +9,7 @@ import jobsRoute from "./routes/jobsRoute.js";
 import loginRoute from "./routes/loginRoute.js";
 import postsRoute from "./routes/postsRoute.js";
 import signupRoute from "./routes/signupRoute.js";
+import logoutRoute from "./routes/logoutRoute.js";
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -31,6 +32,7 @@ app.use(compression()); // compress all responses
 // Routes
 app.use("/login", loginRoute);
 app.use("/signup", signupRoute);
+app.use("/logout", logoutRoute);
 app.use("/posts", postsRoute);
 app.use("/jobs", jobsRoute);
 app.use("/interview", interviewRoute);
