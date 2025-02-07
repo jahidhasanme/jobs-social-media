@@ -215,7 +215,7 @@ export const deleteSavedJob = async (req, res) => {
   try {
     const job = await SavedJobs.findOne({ id: req.query.id });
     if (job) {
-      await job.deleteOne(job);
+      await SavedJobs.deleteOne(job);
       res.send({
         message: "Job deleted successfully!",
         data: job,
@@ -236,7 +236,7 @@ export const deleteArchivedJob = async (req, res) => {
   try {
     const job = await ArchivedJobs.findOne({ id: req.query.id });
     if (job) {
-      await job.deleteOne(job);
+      await ArchivedJobs.deleteOne(job);
       res.send({
         message: "Job deleted successfully!",
         data: job,
@@ -257,7 +257,7 @@ export const deleteAppliedJob = async (req, res) => {
   try {
     const job = await AppliedJobs.findOne({ id: req.query.id });
     if (job) {
-      await job.deleteOne(job);
+      await AppliedJobs.deleteOne(job);
       res.send({
         message: "Job deleted successfully!",
         data: job,
